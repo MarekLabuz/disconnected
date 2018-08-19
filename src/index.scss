@@ -1,24 +1,39 @@
+$heroWidth: 200px;
+
 .hero {
   position: fixed;
   left: 50%;
   top: 50%;
   border: 2px solid gray;
-  padding: 50px;
   transform: translate(-50%, -50%);
 
-  width: 100px;
+  width: $heroWidth;
   height: 300px;
+}
+
+.torso {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  border: 1px solid green;
 }
 
 .leg {
   position: absolute;
-  top: 10px;
+  left: 100px;
+}
+
+.legs {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  border: 1px solid red;
 }
 
 .legPart {
   width: 50px;
   height: 100px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 100px;
   box-sizing: border-box;
 }
@@ -37,13 +52,23 @@
 
 .thigh {
   transform-origin: 50% 20%;
-  // animation: thigh-rotate;
+  animation: thigh-rotate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: ease-in-out;
 
   border-color: red;
+
+  & > div:first-child svg {
+    position: absolute;
+    width: 334px;
+    height: 375px;
+    transform: scale(0.2);
+    top: -141px;
+    left: -140px;
+    z-index: 100;
+  }
 }
 
 @keyframes calf-rotate {
@@ -63,7 +88,7 @@
 
 .calf {
   transform-origin: 50% 20%;
-  // animation-name: calf-rotate;
+  animation-name: calf-rotate;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-direction: normal;
@@ -79,10 +104,9 @@
     height: 229px;
     transform: scale(0.4);
     top: -66px;
-    left: -11px;
-
+    left: -18px;
+    // z-index: 50;
   }
-
 }
 
 @keyframes foot-rotate {
@@ -99,7 +123,7 @@
 
 .foot {
   transform-origin: 50% 20%;
-  // animation-name: foot-rotate;
+  animation-name: foot-rotate;
   animation-duration: 2s;
   animation-direction: normal;
   animation-iteration-count: infinite;
