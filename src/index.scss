@@ -1,0 +1,121 @@
+.hero {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border: 2px solid gray;
+  padding: 50px;
+  transform: translate(-50%, -50%);
+
+  width: 100px;
+  height: 300px;
+}
+
+.leg {
+  position: absolute;
+  top: 10px;
+}
+
+.legPart {
+  width: 50px;
+  height: 100px;
+  border: 2px solid black;
+  border-radius: 100px;
+  box-sizing: border-box;
+}
+
+@keyframes thigh-rotate {
+  0% {
+    transform: rotateZ(-25deg);
+  }
+  45% {
+    transform: rotateZ(55deg);
+  }
+  100% {
+    transform: rotateZ(-25deg);
+  }
+}
+
+.thigh {
+  transform-origin: 50% 20%;
+  // animation: thigh-rotate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+
+  border-color: red;
+}
+
+@keyframes calf-rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  30% {
+    transform: rotateZ(-95deg);
+  }
+  70% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.calf {
+  transform-origin: 50% 20%;
+  // animation-name: calf-rotate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+
+  position: relative;
+  top: 60%;
+  border-color: blue;
+
+  & > div:first-child svg {
+    position: absolute;
+    width: 75px;
+    height: 229px;
+    transform: scale(0.4);
+    top: -66px;
+    left: -11px;
+
+  }
+
+}
+
+@keyframes foot-rotate {
+  0% {
+    transform: rotateZ(115deg);
+  }
+  40% {
+    transform: rotateZ(30deg);
+  }
+  100% {
+    transform: rotateZ(115deg);
+  }
+}
+
+.foot {
+  transform-origin: 50% 20%;
+  // animation-name: foot-rotate;
+  animation-duration: 2s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  position: relative;
+  top: 60%;
+  border-color: green;
+
+  & > div:first-child svg {
+    position: absolute;
+    width: 426px;
+    height: 160px;
+    transform: scale(0.15) rotate(-90deg);
+    position: relative;
+    left: -179px;
+    top: -40px;
+  }
+}
