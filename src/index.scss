@@ -17,15 +17,26 @@ html, body {
   //   // border: 1px solid green;
   // }
 
-  div:nth-child(1), div:nth-child(3) {
-    flex: 1;
+  & > div:nth-child(1) {
+    width: calc(50% - 500px - 100px);
+    background-color: black;
+  }
+
+  & > div:nth-child(3) {
+    width: calc(50% - 500px + 100px);
     background-color: black;
   }
 
   & > div:nth-child(2) {
+    position: relative;
     width: 1000px;
     display: flex;
     flex-direction: column;
+
+    & > div:nth-child(1), & > div:nth-child(3) {
+      flex: 1;
+      background-color: black;
+    }
 
     & > div:nth-child(2) {
       height: 1000px;
