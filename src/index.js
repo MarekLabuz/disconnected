@@ -106,7 +106,7 @@ const Chest = (
   >
     {Head}
     {Arm({ animationDelay: 0 })}
-    {ArmWithLight()}
+    {/* {ArmWithLight()} */}
   </div>
 )
 
