@@ -78,7 +78,13 @@ const ArmWithLight = () => (
       <div className={cx(style.armPart, style.forearm, style.forearmWithLightAnimation)}>
         <div>
           <div>
-
+            <div />
+            <div>
+              <div />
+              <div />
+              <div />
+            </div>
+            <div />
           </div>
         </div>
       </div>
@@ -116,21 +122,21 @@ const Hero = (
   </div>
 )
 
-const Light = (
-  <div className={style.light} $style={() => ({
-    transform: PlayerStore.state.direction === 'LEFT'
-      ? 'scaleX(1)'
-      : 'scaleX(-1)'
-  })}>
-    <div />
-    <div>
-      <div />
-      <div />
-      <div />
-    </div>
-    <div />
-  </div>
-)
+// const Light = (
+//   <div className={style.light} $style={() => ({
+//     transform: PlayerStore.state.direction === 'LEFT'
+//       ? 'scaleX(1)'
+//       : 'scaleX(-1)'
+//   })}>
+//     <div />
+//     <div>
+//       <div />
+//       <div />
+//       <div />
+//     </div>
+//     <div />
+//   </div>
+// )
 
 const HouseBackground = (
   <div className={styleHouse.house} $style={() => ({
@@ -143,7 +149,7 @@ const HouseBackground = (
 
 const App = (
   <div>
-    {/* {HouseBackground} */}
+    {HouseBackground}
     {Hero}
     {/* {Light} */}
   </div>
