@@ -1,21 +1,10 @@
 .house {
   position: fixed;
-  border: 2px solid red;
-  // width: 5000px;
-  // height: 5000px;
 
   svg {
     transform: scale(0.6);
+    transform-origin: 0 300px;
     width: 5000px;
     height: 5000px;
   }
 }
-
-// .computer {
-//   position: absolute;
-//   width: 100px;
-//   height: 100px;
-//   border: 2px solid black;
-//   left: 500px;
-//   top: 500px;
-// }

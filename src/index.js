@@ -1,10 +1,6 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-// import footSVG from './svg/foot.svg'
-// import calfSVG from './svg/calf2.svg'
-// import thighSVG from './svg/thigh.svg'
-// import torsoSVG from './svg/torso.svg'
 import houseSVG from './svg/house6.svg'
 
 import style from './index.scss'
@@ -19,11 +15,19 @@ const PlayerStore = (
   />
 )
 
+let resizeTimeout
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout)
+  resizeTimeout = setTimeout(() => {
+    window.location.reload()
+  }, 250)
+})
+
 const HouseStore = (
   <$
     state={{
-      left: -2071,
-      top: -689
+      left: -1600,
+      top: -311
     }}
   />
 )
@@ -140,8 +144,8 @@ const Hero = (
 
 const HouseBackground = (
   <div className={styleHouse.house} $style={() => ({
-    left: `${HouseStore.state.left}px`,
-    top: `${HouseStore.state.top}px`,
+    left: `calc(${HouseStore.state.left}px + ${window.innerWidth / 2}px)`,
+    top: `calc(${HouseStore.state.top}px + ${window.innerHeight / 2}px)`,
   })}>
     <div innerHTML={houseSVG} />
   </div>
