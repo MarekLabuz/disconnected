@@ -56,12 +56,20 @@
   transform-origin: 50% 90%;
   background-color: white;
   position: absolute;
-  width: 8px;
-  height: 59px;
+  width: 2px;
+  height: 40px;
   border: 2px solid white;
-  left: 178px;
-  top: 261px;
+  left: 181px;
+  top: 275px;
   border-radius: 50px;
+
+  & > div {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
 }
 
 .interactionArea {
@@ -144,12 +152,83 @@
   position: absolute;
   left: 1631px;
   top: 599px;
-  // background-color: white;
 
   svg {
     position: relative;
     transform: scale(0.4);
-    // top: -257px;
-    // left: 13px;
+  }
+}
+
+.wireContainer {
+  & > div:first-child {
+    div {
+      position: absolute;
+      height: 5px;
+      background-color: white;
+    }
+
+    & > div:nth-child(1) {
+      left: 680px;
+      top: 782px;
+      width: 41px;
+    }
+
+    & > div:nth-child(2) {
+      left: 659px;
+      top: 803px;
+      width: 46px;
+      transform: rotateZ(90deg);
+    }
+
+    & > div:nth-child(3) {
+      left: 817px;
+      top: 803px;
+      width: 46px;
+      transform: rotateZ(90deg);
+    }
+
+    & > div:nth-child(4) {
+      left: 801px;
+      top: 782px;
+      width: 41px;
+    }
+  }
+}
+
+@keyframes sparkle-animation {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  50% {
+    left: 60%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.sparkle {
+  position: absolute;
+  top: 783px;
+  // background-color: red;
+  width: 30px;
+  height: 3px;
+  transform-origin: 0 0;
+
+  & > div {
+    position: relative;
+    width: 10px;
+    height: 100%;
+    background-color: yellow;
+    opacity: 0;
+
+    animation: sparkle-animation;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
   }
 }

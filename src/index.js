@@ -22,15 +22,18 @@ const PlayerStore = (
 // state={{
 //   left: -1130,
 //   top: -311
+// top: -742,
 // }}
 
 const HouseStore = (
   <$
     state={{
-      left: -1430,
-      top: -711,
+      left: -430,
+      top: -742,
       wifiFixed: false,
       leverFixed: false,
+      wireFixed: false,
+      tapeTaken: false,
       oilTaken: false
     }}
   />
@@ -161,7 +164,9 @@ const setTemporaryText = (temporaryText) => {
 }
 
 const Lever = (
-  <div $className={() => cx(styleHouse.lever, HouseAnimations.state.lever)} />
+  <div $className={() => cx(styleHouse.lever, HouseAnimations.state.lever)}>
+    <div />
+  </div>
 )
 
 const LeverInteractionArea = (
@@ -208,8 +213,44 @@ const Oil = (
 const OilInteractionArea = (
   <div
     className={cx(styleHouse.interactionArea)}
-    style={{ left: 1450, top: 555, width: 250, height: 300 }}
+    style={{ left: 1510, top: 555, width: 250, height: 300 }}
   />
+)
+
+const WireInteractionArea = (
+  <div
+    className={cx(styleHouse.interactionArea)}
+    style={{ left: 620, top: 555, width: 270, height: 300 }}
+  />
+)
+
+const Sparkle = (side, rotate, delay) => (
+  <div
+    className={styleHouse.sparkle}
+    style={{
+      transform: side === 'left' ?  `rotateZ(${rotate}deg)` : `rotateZ(${rotate}deg) scaleX(-1)`,
+      left: side === 'left' ? '715px' : '805px'
+    }}
+  >
+    <div style={{ animationDelay: `${delay}s` }}/>
+  </div>
+)
+
+const Wire = (
+  <div className={styleHouse.wireContainer}>
+    <div>
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+    {Sparkle('left', -35, 0)}
+    {Sparkle('left', 15, 0.2)}
+    {Sparkle('left', -15, 0.4)}
+    {Sparkle('right', -15, 0)}
+    {Sparkle('right', 35, 0.2)}
+    {Sparkle('right', 15, 0.4)}
+  </div>
 )
 
 const HouseBackground = (
@@ -222,10 +263,12 @@ const HouseBackground = (
     {LeverInteractionArea}
     {Computer}
     {ComputerInteractionArea}
-    {Oil}
+    {() => !HouseStore.state.oilTaken && Oil}
     {OilInteractionArea}
     {Stair1FloorInteractionArea}
     {Stair0Floor1InteractionArea}
+    {Wire}
+    {WireInteractionArea}
   </div>
 )
 
@@ -239,7 +282,7 @@ const App = (
 
 Gruu.renderApp(document.querySelector('#root'), App)
 
-const IsInteractiveAreaActive = (Area) => {
+const isInteractiveAreaActive = (Area) => {
   const bbox = Area._n.getBoundingClientRect()
   return (
     bbox.left < centerX && bbox.right > centerX && bbox.top < centerY && bbox.bottom > centerY
@@ -263,28 +306,40 @@ const gameLoop = () => {
   let tipsText = ''
   let tipsVisible = false
 
-  if (IsInteractiveAreaActive(LeverInteractionArea)) {
+  if (isInteractiveAreaActive(LeverInteractionArea)) {
     tipsVisible = true
     if (!HouseStore.state.leverFixed) {
       tipsText = 'That looks interesting...\n\nPress E to interact'
+    } else {
+      tipsText = 'I hope it is alright now...'
     }
   }
 
-  if (IsInteractiveAreaActive(ComputerInteractionArea)) {
+  if (isInteractiveAreaActive(ComputerInteractionArea)) {
     tipsVisible = true
-    if (!HouseStore.state.leverFixed) {
+    if (!HouseStore.state.wifiFixed) {
       tipsText = 'It looks like I\'ve lost connection...\n\nPress E to interact'
     }
   }
 
-  if (IsInteractiveAreaActive(Stair1FloorInteractionArea)) {
+  if (isInteractiveAreaActive(Stair1FloorInteractionArea)) {
     tipsVisible = true
     tipsText = 'Press ↓ to go downstairs'
   }
 
-  if (IsInteractiveAreaActive(Stair0Floor1InteractionArea)) {
+  if (isInteractiveAreaActive(Stair0Floor1InteractionArea)) {
     tipsVisible = true
     tipsText = 'Press ↑ to go upstairs'
+  }
+
+  if (isInteractiveAreaActive(OilInteractionArea) && !HouseStore.state.oilTaken) {
+    tipsVisible = true
+    tipsText = 'Hmm... I might use it somewhere\n\nPress E to pick oil'
+  }
+
+  if (isInteractiveAreaActive(WireInteractionArea)) {
+    tipsVisible = true
+    tipsText = 'Ouch! It looks bad...\n\nPress E to interact'
   }
 
   if (tipsText !== Tips.state.text && tipsText !== '') {
@@ -315,13 +370,20 @@ document.addEventListener('keydown', (e) => {
       PlayerStore.state.isWalking = true
       break
     case 69:
-      if (IsInteractiveAreaActive(LeverInteractionArea) && !LeverInteractionArea.state.active) {
+      if (
+        !HouseStore.state.leverFixed &&
+        isInteractiveAreaActive(LeverInteractionArea) &&
+        !LeverInteractionArea.state.active
+      ) {
         LeverInteractionArea.state.active = true
-        if (HouseStore.state.leverFixed) {
+        if (HouseStore.state.oilTaken) {
+          HouseStore.state.leverFixed = true
           HouseAnimations.state.lever = styleHouse.leverFixedAnimation
         } else {
           HouseAnimations.state.lever = styleHouse.leverBrokenAnimation
-          setTemporaryText('Hmm..., it won\'t go any further...\nI wish I had something to oil it')
+          setTimeout(() => {
+            setTemporaryText('Hmm..., it won\'t go any further...\nI wish I had something to oil it')
+          }, 1000)
         }
         setTimeout(() => {
           if (!HouseStore.state.leverFixed) {
@@ -330,7 +392,10 @@ document.addEventListener('keydown', (e) => {
           }
         }, 2000)
       }
-      if (IsInteractiveAreaActive(ComputerInteractionArea) && !ComputerInteractionArea.state.active) {
+      if (
+        isInteractiveAreaActive(ComputerInteractionArea) &&
+        !ComputerInteractionArea.state.active
+      ) {
         if (HouseStore.state.wifiFixed) {
           HouseAnimations.state.wifi = styleHouse.wifiAnimation
         } else {
@@ -344,17 +409,34 @@ document.addEventListener('keydown', (e) => {
           HouseAnimations.state.wifi = null
         }, 1500)
       }
+      if (
+        isInteractiveAreaActive(OilInteractionArea) &&
+        !HouseStore.state.oilTaken
+      ) {
+        HouseStore.state.oilTaken = true
+      }
+      if (
+        isInteractiveAreaActive(WireInteractionArea)
+      ) {
+        if (HouseStore.state.tapeTaken) {
+          HouseStore.state.wireFixed = true
+        } else {
+          setTemporaryText('I\'d better not touch it\nDo I have anything to isolate it?')
+        }
+      }
       break
     case 40:
-      if (IsInteractiveAreaActive(Stair1FloorInteractionArea)) {
+      if (isInteractiveAreaActive(Stair1FloorInteractionArea)) {
         HouseStore.state.left = -970
         HouseStore.state.top = -742
       }
+      break
     case 38:
-      if (IsInteractiveAreaActive(Stair0Floor1InteractionArea)) {
+      if (isInteractiveAreaActive(Stair0Floor1InteractionArea)) {
         HouseStore.state.left = -500
         HouseStore.state.top = -311
       }
+      break
     default:
       break
   }
