@@ -5,7 +5,7 @@ import cx from 'classnames'
 // import calfSVG from './svg/calf2.svg'
 // import thighSVG from './svg/thigh.svg'
 // import torsoSVG from './svg/torso.svg'
-import houseSVG from './svg/house4.svg'
+import houseSVG from './svg/house6.svg'
 
 import style from './index.scss'
 import styleHouse from './house.scss'
@@ -13,7 +13,8 @@ import styleHouse from './house.scss'
 const PlayerStore = (
   <$
     state={{
-      direction: 'NONE'
+      direction: 'LEFT',
+      isWalking: false
     }}
   />
 )
@@ -21,30 +22,66 @@ const PlayerStore = (
 const HouseStore = (
   <$
     state={{
-      left: -1960,
-      top: -681
+      left: -2071,
+      top: -689
     }}
   />
 )
 
-const Leg = (customStyle = {}, customLegPartStyle = {}) => (
-  <div className={style.leg} style={customStyle}>
-    <div className={cx(style.legPart, style.thigh)} style={customLegPartStyle}>
-      {/* <div innerHTML={thighSVG} /> */}
-      <div className={cx(style.legPart, style.calf)} style={customLegPartStyle}>
-        {/* <div innerHTML={calfSVG} /> */}
-        <div className={cx(style.legPart, style.foot)} style={customLegPartStyle}>
-          {/* <div innerHTML={footSVG} /> */}
-        </div>
-      </div>
+const Leg = (customLegPartStyle = {}) => (
+  <div className={style.leg}>
+    <div
+      $className={() => cx(style.legPart, style.thigh, (
+        PlayerStore.state.isWalking
+          ? style.thighMoveAnimation
+          : style.thighStandAnimation
+      ))}
+      style={customLegPartStyle}
+    >
+      <div
+        $className={() => cx(style.legPart, style.calf, (
+          PlayerStore.state.isWalking
+            ? style.calfMoveAnimation
+            : style.calfStandAnimation
+        ))}
+        style={customLegPartStyle}
+      />
     </div>
   </div>
 )
 
-const Arm = (customStyle = {}, customArmPartStyle = {}) => (
-  <div className={style.arm} style={customStyle}>
-    <div className={cx(style.armPart, style.shoulder)}  style={customArmPartStyle}>
-      <div className={cx(style.armPart, style.forearm)}  style={customArmPartStyle} />
+const Arm = (customArmPartStyle = {}) => (
+  <div className={style.arm}>
+    <div
+      $className={() => cx(style.armPart, style.shoulder, (
+        PlayerStore.state.isWalking
+          ? style.shoulderMoveAnimation
+          : style.shoulderStandAnimation
+      ))}
+      style={customArmPartStyle}
+    >
+      <div
+        $className={() => cx(style.armPart, style.forearm, (
+          PlayerStore.state.isWalking
+            ? style.forearmMoveAnimation
+            : style.forearmStandAnimation
+        ))}
+        style={customArmPartStyle}
+      />
+    </div>
+  </div>
+)
+
+const ArmWithLight = () => (
+  <div className={style.arm}>
+    <div className={cx(style.armPart, style.shoulder, style.shoulderWithLightAnimation)}>
+      <div className={cx(style.armPart, style.forearm, style.forearmWithLightAnimation)}>
+        <div>
+          <div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 )
@@ -54,11 +91,16 @@ const Head = (
 )
 
 const Chest = (
-  <div className={style.chest}>
+  <div
+    $className={() => cx(style.chest, (
+      PlayerStore.state.isWalking
+        ? style.chestMoveAnimation
+        : style.chestStandAnimation
+    ))}
+  >
     {Head}
-    {/* <div innerHTML={torsoSVG} /> */}
-    {Arm({ zIndex: 10 }, { animationDelay: 0 })}
-    {Arm({ zIndex: 30 }, { animationDelay: '-1s' })}
+    {Arm({ animationDelay: 0 })}
+    {ArmWithLight()}
   </div>
 )
 
@@ -69,16 +111,16 @@ const Hero = (
       : 'scaleX(1) translate(-50%, -50%)'
   })}>
     {Chest}
-    {Leg({ zIndex: 10 }, { animationDelay: 0 })}
-    {Leg({ zIndex: 30 }, { animationDelay: '-1s' })}
+    {Leg({ animationDelay: 0, animationFillMode: 'forwards' })}
+    {Leg({ animationDelay: '-1s', animationFillMode: 'backwards' })}
   </div>
 )
 
 const Light = (
   <div className={style.light} $style={() => ({
-    transform: PlayerStore.state.direction === 'RIGHT'
-      ? 'scaleX(-1)'
-      : 'scaleX(1)'
+    transform: PlayerStore.state.direction === 'LEFT'
+      ? 'scaleX(1)'
+      : 'scaleX(-1)'
   })}>
     <div />
     <div>
@@ -95,31 +137,32 @@ const HouseBackground = (
     left: `${HouseStore.state.left}px`,
     top: `${HouseStore.state.top}px`,
   })}>
-    {/* <div className={styleHouse.computer}/> */}
     <div innerHTML={houseSVG} />
   </div>
 )
 
 const App = (
   <div>
-    {HouseBackground}
+    {/* {HouseBackground} */}
     {Hero}
-    {Light}
+    {/* {Light} */}
   </div>
 )
 
 Gruu.renderApp(document.querySelector('#root'), App)
 
 const gameLoop = () => {
-  switch (PlayerStore.state.direction) {
-    case 'LEFT':
-      HouseStore.state.left += 5
-      break
-    case 'RIGHT':
-      HouseStore.state.left -= 5
-      break
-    default:
-      break
+  if (PlayerStore.state.isWalking) {
+    switch (PlayerStore.state.direction) {
+      case 'LEFT':
+        HouseStore.state.left += 3
+        break
+      case 'RIGHT':
+        HouseStore.state.left -= 3
+        break
+      default:
+        break
+    }
   }
   setTimeout(gameLoop, 30)
 }
@@ -129,9 +172,11 @@ document.addEventListener('keydown', (e) => {
   switch (e.keyCode) {
     case 39:
       PlayerStore.state.direction = 'RIGHT'
+      PlayerStore.state.isWalking = true
       break
     case 37:
       PlayerStore.state.direction = 'LEFT'
+      PlayerStore.state.isWalking = true
       break
     default:
       break
@@ -139,7 +184,7 @@ document.addEventListener('keydown', (e) => {
 })
 
 document.addEventListener('keyup', (e) => {
-  PlayerStore.state.direction = 'NONE'
+  PlayerStore.state.isWalking = false
 })
 
 gameLoop()
