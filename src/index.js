@@ -2,7 +2,7 @@ import Gruu from 'gruujs'
 import cx from 'classnames'
 
 import houseSVG from './svg/house.svg'
-import oilSVG from './svg/oil2.svg'
+import oilSVG from './svg/oil.svg'
 
 import style from './index.scss'
 import styleHouse from './house.scss'
@@ -27,8 +27,8 @@ const PlayerStore = (
 const HouseStore = (
   <$
     state={{
-      left: -1130,
-      top: -742,
+      left: -1430,
+      top: -711,
       wifiFixed: false,
       leverFixed: false,
       oilTaken: false
@@ -202,7 +202,7 @@ const Stair0Floor1InteractionArea = (
 )
 
 const Oil = (
-  <div className={styleHouse.oil}><div innerHTML={oilSVG} /></div>
+  <div className={styleHouse.oil} innerHTML={oilSVG}></div>
 )
 
 const OilInteractionArea = (
