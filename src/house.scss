@@ -8,3 +8,144 @@
     height: 5000px;
   }
 }
+
+@keyframes lever-broken-animation {
+  0% {
+    transform: rotateZ(-25deg);
+  }
+  20% {
+    transform: rotateZ(-5deg);
+  }
+  40% {
+    transform: rotateZ(-25deg);
+  }
+  60% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(-25deg);
+  }
+}
+
+.leverBrokenAnimation {
+  animation: lever-broken-animation;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes lever-fixed-animation {
+  0% {
+    transform: rotateZ(-25deg);
+  }
+  100% {
+    transform: rotateZ(25deg);
+  }
+}
+
+.leverFixedAnimation {
+  animation: lever-fixed-animation;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.lever {
+  transform: rotateZ(-25deg);
+  transform-origin: 50% 90%;
+  background-color: white;
+  position: absolute;
+  width: 8px;
+  height: 59px;
+  border: 2px solid white;
+  left: 178px;
+  top: 261px;
+  border-radius: 50px;
+}
+
+.interactionArea {
+  position: absolute;
+  border: 2px solid red;
+}
+
+@keyframes wifi-animation {
+  0% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.wifiAnimation {
+  animation: wifi-animation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 3;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+}
+
+.wifiContainer {
+  position: absolute;
+  left: 1236px;
+  top: 216px;
+}
+
+.wifiCross {
+  position: relative;
+  width: 40px;
+  height: 3px;
+  background-color: red;
+  transform: rotate(45deg);
+  top: 11px;
+  left: 2px;
+}
+
+.wifi {
+  padding: 4px;
+}
+
+.wifi, .wifi:before {
+	display: inline-block;
+	border: 10px double transparent;
+	border-top-color: white;
+	border-radius: 50%;
+}
+
+.wifi:before {
+	content: '';
+	width: 0; height: 0;
+}
+
+.tips {
+  position: fixed;
+  border: 3px solid white;
+  left: calc(50% + 50px);
+  top: calc(50% - 130px);
+  background-color: black;
+  opacity: 0;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  transition: opacity 0.5s, transform 0.5s;
+  transform-origin: 0 0;
+}
+
+.tipsVisible {
+  opacity: 0.7;
+  transform: rotateZ(-25deg);
+}
+
+.oil {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  left: 1580px;
+  top: 676px;
+  background-color: white;
+  border-radius: 4px;
+}
