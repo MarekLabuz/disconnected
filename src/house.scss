@@ -232,3 +232,64 @@
     animation-timing-function: linear;
   }
 }
+
+.tape {
+  position: absolute;
+  top: 905px;
+  left: 1220px;
+
+  svg {
+    transform: scale(0.3);
+  }
+}
+
+.fixingWire {
+  width: 100px;
+  height: 9px;
+  position: absolute;
+  top: 780px;
+  left: 713px;
+  background-color: white;
+}
+
+@keyframes gear-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.staticGear {
+  position: absolute;
+  top: 1162px;
+  left: 210px;
+  width: 100px;
+  height: 100px;
+
+  animation: gear-animation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+
+  svg {
+    position: relative;
+    top: -187px;
+    left: 50%;
+    transform: scale(0.3) translateX(-50%);
+    width: 190px;
+    height: 190px;
+  }
+}
+
+.emptyGear {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  top: 1207px;
+  left: 199px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
