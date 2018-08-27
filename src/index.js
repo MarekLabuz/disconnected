@@ -323,7 +323,7 @@ const HouseBackground = (
     {TapeInteractionArea}
     {StaticGear()}
     {() => HouseStore.state.gearFixed ? StaticGear({ left: 160, animationDirection: 'reverse', animationDelay: '-0.5s' }) : <div className={styleHouse.emptyGear} />}
-    {() => HouseStore.state.gearFixed ? StaticGear({ left: 110 }): StaticGear({ left: 100, animationDuration: `0s` })}
+    {() => HouseStore.state.gearFixed ? StaticGear({ left: 110 }): StaticGear({ left: 110, animationDuration: `0s` })}
     {StaticGearInteractionArea}
   </div>
 )
