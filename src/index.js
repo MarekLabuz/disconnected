@@ -30,15 +30,15 @@ const PlayerStore = (
 const HouseStore = (
   <$
     state={{
-      left: -400,
-      top: -1180,
+      left: -1130,
+      top: -311,
       wifiFixed: false,
-      leverFixed: false,
-      wireFixed: false,
-      gearFixed: false,
+      leverFixed: true,
+      wireFixed: true,
+      gearFixed: true,
       tapeTaken: false,
       oilTaken: false,
-      gearTaken: true
+      gearTaken: false
     }}
   />
 )
@@ -231,7 +231,7 @@ const Oil = (
 const OilInteractionArea = (
   <div
     className={cx(styleHouse.interactionArea)}
-    style={{ left: 1510, top: 555, width: 250, height: 300 }}
+    style={{ left: 1570, top: 555, width: 200, height: 300 }}
   />
 )
 
@@ -286,18 +286,29 @@ const Tape = (
 const TapeInteractionArea = (
   <div
     className={cx(styleHouse.interactionArea)}
-    style={{ left: 1130, top: 1000, width: 270, height: 300 }}
+    style={{ left: 1170, top: 1000, width: 170, height: 300 }}
   />
 )
 
 const StaticGear = (customStyle = {}) => (
-  <div className={styleHouse.staticGear} innerHTML={gearSVG} style={customStyle}></div>
+  <div className={cx(styleHouse.gear, styleHouse.staticGear)} innerHTML={gearSVG} style={customStyle}></div>
 )
 
 const StaticGearInteractionArea = (
   <div
     className={cx(styleHouse.interactionArea)}
     style={{ left: 50, top: 1000, width: 350, height: 300 }}
+  />
+)
+
+const DynamicGear = (
+  <div className={cx(styleHouse.gear, styleHouse.dynamicGear)} innerHTML={gearSVG}></div>
+)
+
+const DynamicGearInteractionArea = (
+  <div
+    className={cx(styleHouse.interactionArea)}
+    style={{ left: 1650, top: 120, width: 150, height: 300 }}
   />
 )
 
@@ -325,6 +336,8 @@ const HouseBackground = (
     {() => HouseStore.state.gearFixed ? StaticGear({ left: 160, animationDirection: 'reverse', animationDelay: '-0.5s' }) : <div className={styleHouse.emptyGear} />}
     {() => HouseStore.state.gearFixed ? StaticGear({ left: 110 }): StaticGear({ left: 110, animationDuration: `0s` })}
     {StaticGearInteractionArea}
+    {() => !HouseStore.state.gearTaken && DynamicGear}
+    {DynamicGearInteractionArea}
   </div>
 )
 
@@ -349,10 +362,10 @@ const gameLoop = () => {
   if (PlayerStore.state.isWalking) {
     switch (PlayerStore.state.direction) {
       case 'LEFT':
-        HouseStore.state.left += 3
+      if (HouseStore.state.left < -30) HouseStore.state.left += 3
         break
       case 'RIGHT':
-        HouseStore.state.left -= 3
+        if (HouseStore.state.left > -1770) HouseStore.state.left -= 3
         break
       default:
         break
@@ -416,6 +429,11 @@ const gameLoop = () => {
     }
   }
 
+  if (isInteractiveAreaActive(DynamicGearInteractionArea) && !HouseStore.state.gearTaken) {
+    tipsVisible = true
+    tipsText = 'I don\'t remember putting it here...\n\nPress E to pick gear'
+  }
+
   if (tipsText !== Tips.state.text && tipsText !== '') {
     Tips.state.text = tipsText
   }
@@ -470,7 +488,7 @@ document.addEventListener('keydown', (e) => {
         isInteractiveAreaActive(ComputerInteractionArea) &&
         !ComputerInteractionArea.state.active
       ) {
-        if (HouseStore.state.wifiFixed) {
+        if (HouseStore.state.gearFixed && HouseStore.state.leverFixed && HouseStore.state.wireFixed) {
           HouseAnimations.state.wifi = styleHouse.wifiAnimation
         } else {
           HouseAnimations.state.wifi = styleHouse.wifiAnimation
@@ -514,6 +532,12 @@ document.addEventListener('keydown', (e) => {
         } else {
           setTemporaryText('Without necessary tools I can do nothing...')
         }
+      }
+      if (
+        isInteractiveAreaActive(DynamicGearInteractionArea) &&
+        !HouseStore.state.gearTaken
+      ) {
+        HouseStore.state.gearTaken = true
       }
       break
     case 40:

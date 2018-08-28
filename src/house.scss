@@ -3,7 +3,7 @@
 
   svg {
     transform: scale(0.6);
-    transform-origin: 0 300px;
+    transform-origin: 0 61px;
     width: 5000px;
     height: 5000px;
   }
@@ -151,7 +151,7 @@
 .oil {
   position: absolute;
   left: 1631px;
-  top: 599px;
+  top: 742px;
 
   svg {
     position: relative;
@@ -235,7 +235,7 @@
 
 .tape {
   position: absolute;
-  top: 905px;
+  top: 1072px;
   left: 1220px;
 
   svg {
@@ -261,27 +261,30 @@
   }
 }
 
-.staticGear {
+.gear {
   position: absolute;
-  top: 1162px;
-  left: 210px;
   width: 100px;
   height: 100px;
+
+  svg {
+    position: relative;
+    top: -21px;
+    left: 50%;
+    transform: scale(0.3) translateX(-50%);
+    width: 190px;
+    height: 190px;
+  }
+}
+
+.staticGear {
+  top: 1162px;
+  left: 210px;
 
   animation: gear-animation;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-timing-function: linear;
-
-  svg {
-    position: relative;
-    top: -187px;
-    left: 50%;
-    transform: scale(0.3) translateX(-50%);
-    width: 190px;
-    height: 190px;
-  }
 }
 
 .emptyGear {
@@ -292,4 +295,10 @@
   left: 205px;
   border: 1px solid white;
   border-radius: 50%;
+}
+
+.dynamicGear {
+  top: 319px;
+  left: 1714px;
+  transform: rotate(-68deg);
 }
