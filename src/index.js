@@ -27,11 +27,19 @@ const PlayerStore = (
 // top: -742,
 // }}
 
+
+// left: -1460,
+// top: -311,
+
 const HouseStore = (
   <$
     state={{
-      left: -1130,
-      top: -311,
+      left: -1250,
+      top: -308,
+      shadowScreenText: '',
+      introStory: true,
+      inIntroZone: false,
+      wifiCrossVisible: false,
       wifiFixed: false,
       leverFixed: true,
       wireFixed: true,
@@ -130,16 +138,20 @@ const Chest = (
   >
     {Head}
     {Arm({ animationDelay: 0 })}
-    {/* {ArmWithLight()} */}
+    {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })}
+    {ArmWithLight()}
   </div>
 )
 
 const Hero = (
-  <div className={style.hero} $style={() => ({
-    transform: PlayerStore.state.direction === 'RIGHT'
-      ? 'scaleX(-1) translate(50%, -50%)'
-      : 'scaleX(1) translate(-50%, -50%)'
-  })}>
+  <div
+    $className={() => cx(style.hero, HouseStore.state.introStory && style.programming)}
+    $style={() => ({
+      transform: PlayerStore.state.direction === 'RIGHT'
+        ? 'scaleX(-1) translate(50%, -50%)'
+        : 'scaleX(1) translate(-50%, -50%)'
+    })}
+  >
     {Chest}
     {Leg({ animationDelay: 0, animationFillMode: 'forwards' })}
     {Leg({ animationDelay: '-1s', animationFillMode: 'backwards' })}
@@ -159,13 +171,21 @@ const Tips = (
 )
 
 let temporaryTextTimeout
-const setTemporaryText = (temporaryText) => {
+const setTemporaryText = (temporaryText, time = 5000) => {
   Tips.state.temporaryText = temporaryText
   clearTimeout(temporaryTextTimeout)
   temporaryTextTimeout = setTimeout(() => {
     Tips.state.temporaryText = ''
-  }, 5000)
+  }, time)
 }
+
+const IntoZone = (
+  <div
+    state={{ active: false }}
+    className={cx(styleHouse.interactionArea)}
+    style={{ left: 1450, top: 120, width: 30, height: 300 }}
+  />
+)
 
 const Lever = (
   <div $className={() => cx(styleHouse.lever, HouseAnimations.state.lever)}>
@@ -183,7 +203,7 @@ const LeverInteractionArea = (
 
 const Computer = (
   <div $className={() => cx(styleHouse.wifiContainer, HouseAnimations.state.wifi)}>
-    <div className={styleHouse.wifiCross} />
+    {() => HouseStore.state.wifiCrossVisible && <div className={styleHouse.wifiCross} />}
     <div className={styleHouse.wifi} />
   </div>
 )
@@ -318,6 +338,7 @@ const HouseBackground = (
     top: `calc(${HouseStore.state.top}px + ${window.innerHeight / 2}px)`,
   })}>
     <div innerHTML={houseSVG} />
+    {IntoZone}
     {Lever}
     {LeverInteractionArea}
     {Computer}
@@ -341,11 +362,19 @@ const HouseBackground = (
   </div>
 )
 
+const ShadowScreen = (
+  <div
+    $className={() => cx(styleHouse.shadowScreen, HouseStore.state.shadowScreenText && styleHouse.shadowScreenOn)}
+    $innerHTML={() => HouseStore.state.shadowScreenText}
+  />
+)
+
 const App = (
   <div>
     {HouseBackground}
     {Hero}
     {Tips}
+    {ShadowScreen}
   </div>
 )
 
@@ -374,6 +403,13 @@ const gameLoop = () => {
 
   let tipsText = ''
   let tipsVisible = false
+
+  if (isInteractiveAreaActive(IntoZone) && HouseStore.state.inIntroZone) {
+    tipsVisible = true
+    tipsText = 'Move using ← → and solve problem...'
+  } else {
+    HouseStore.state.inIntroZone = false
+  }
 
   if (isInteractiveAreaActive(LeverInteractionArea)) {
     tipsVisible = true
@@ -452,6 +488,7 @@ const gameLoop = () => {
 
 document.addEventListener('keydown', (e) => {
   console.log(e.keyCode)
+  if (HouseStore.state.wifiFixed || HouseStore.state.introStory) return
   switch (e.keyCode) {
     case 39:
       PlayerStore.state.direction = 'RIGHT'
@@ -489,7 +526,15 @@ document.addEventListener('keydown', (e) => {
         !ComputerInteractionArea.state.active
       ) {
         if (HouseStore.state.gearFixed && HouseStore.state.leverFixed && HouseStore.state.wireFixed) {
+          HouseStore.state.wifiFixed = true
           HouseAnimations.state.wifi = styleHouse.wifiAnimation
+          setTimeout(() => {
+            HouseStore.state.wifiCrossVisible = false
+            setTimeout(() => {
+              HouseStore.state.shadowScreenText = '<span>THE END</span>'
+            }, 1000)
+            setTemporaryText('Yey!, it works!', 100000000)
+          }, 1000)
         } else {
           HouseAnimations.state.wifi = styleHouse.wifiAnimation
           setTimeout(() => {
@@ -582,3 +627,19 @@ window.addEventListener('resize', () => {
     window.location.reload()
   }, 250)
 })
+
+setTemporaryText('You\'ve been working as always at night...')
+setTimeout(() => {
+  setTemporaryText('And suddenly you find yourself...')
+  setTimeout(() => {
+    HouseStore.state.shadowScreenText = '<span>DISCONNECTED</span>'
+    setTimeout(() => {
+      HouseStore.state.shadowScreenText = ''
+      HouseStore.state.introStory = false
+      HouseStore.state.wifiCrossVisible = true
+      HouseStore.state.left = -1460
+      HouseStore.state.top = -311
+      HouseStore.state.inIntroZone = true
+    }, 6000)
+  }, 2000)
+}, 2000)

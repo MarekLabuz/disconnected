@@ -112,7 +112,7 @@ html, body {
 }
 
 .armPart {
-  border: $heroBorder;
+  // border: $heroBorder;
   border-radius: 100px;
   box-sizing: border-box;
 }
@@ -262,7 +262,7 @@ html, body {
       position: relative;
       width: 200vw;
       height: 200vw;
-      border: 5px solid green;
+      // border: 5px solid green;
       transform: translate(-50%, -50%);
 
       display: flex;
@@ -279,7 +279,7 @@ html, body {
         flex-direction: column;
 
         // & > div {
-        //   border: 5px solid blue;
+        //   border: 5px solid black;
         // }
 
         & > div:first-child, & > div:last-child {
@@ -415,5 +415,94 @@ html, body {
     transform: scale(0.4);
     top: -66px;
     left: -18px;
+  }
+}
+
+@keyframes forearm1-programming-animation {
+  0% {
+    transform: rotateZ(-95deg);
+  }
+  100% {
+    transform: rotateZ(-125deg);
+  }
+}
+
+@keyframes forearm2-programming-animation {
+  0% {
+    transform: rotateZ(95deg);
+  }
+  100% {
+    transform: rotateZ(125deg);
+  }
+}
+
+.programming {
+  .arm:nth-child(2) .shoulder {
+    transform: rotateZ(45deg);
+    animation: none;
+    height: 50px;
+
+    .forearm {
+      transform: rotateZ(-95deg);
+      animation: forearm1-programming-animation;
+      animation-duration: 0.3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+      height: 20px;
+    }
+  }
+
+  .arm:nth-child(3) .shoulder {
+    transform: rotateZ(-45deg);
+    animation: none;
+    height: 50px;
+
+    .forearm {
+      transform: rotateZ(95deg);
+      animation: forearm2-programming-animation;
+      animation-duration: 0.3s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: linear;
+      animation-delay: -0.3s;
+      height: 20px;
+
+      * {
+        position: fixed;
+      }
+    }
+  }
+
+  .arm:nth-child(4) .shoulder {
+    transform: rotate(45deg) translate(20px, -80px);
+    animation: none;
+    background-color: transparent;
+    .forearm {
+      background-color: transparent;
+      animation: none;
+      & > {
+        div {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .leg:nth-child(2) .thigh {
+    transform: rotateZ(35deg);
+    animation: none;
+
+    .calf {
+      transform: rotateZ(-85deg);
+    }
+  }
+  .leg:nth-child(3) .thigh {
+    transform: rotateZ(-35deg);
+    animation: none;
+
+    .calf {
+      transform: rotateZ(85deg);
+    }
   }
 }
