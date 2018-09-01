@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     filename: 'index.js',
@@ -23,7 +23,9 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' },
+          // {
+          //   loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:2]'
+          // },
           { loader: 'sass-loader' }
         ]
       },

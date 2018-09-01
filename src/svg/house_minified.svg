@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg width="3005px" height="2125px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(.5 .5)">
+<rect x="2" y="2" width="3e3" height="2120" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="854" y="955" width="233" height="387" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1122" y="231" width="141" height="131" rx="6.55" ry="6.55" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1206.4 230.71l-10.06-20.71q-4.37-9-8.88-0.07l-10.78 21.36" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2017" y="281.5" width="160" height="120" rx="10.8" ry="10.8" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2027" y="291.5" width="140" height="100" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2097 431.5h-50q-10 0-3.75-7.81l11.5-14.38q6.25-7.81 16.25-7.81h52q10 0 16.25 7.81l11.5 14.38q6.25 7.81-3.75 7.81z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2127 401.57" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-opacity=".5" stroke-width="5"/>
+<ellipse cx="2127" cy="402" rx=".5" ry=".5" fill="#fff" fill-opacity=".5" pointer-events="none" stroke="#fff" stroke-opacity=".5" stroke-width="5"/>
+<path d="m2127 401.57z" fill="#fff" fill-opacity=".5" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-opacity=".5" stroke-width="5"/>
+<rect x="2189.5" y="410.5" width="30" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1934.5" y="431.5" width="325" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1969.5" y="451.5" width="250" height="20" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1949.5" y="451.5" width="20" height="169" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2219.5" y="451.5" width="20" height="169" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2249.5" y="481.5" width="80" height="139" rx="12" ry="12" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2315" cy="506" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2259.5" y="501.5" width="43" height="8" rx="1.2" ry="1.2" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2290" cy="571" rx="10" ry="10" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2259.5" y="590.5" width="60" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2" y="621" width="3e3" height="61" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2204.7 420.43v-9.72" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="230" y="512" width="150" height="109" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1562 1342v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40l17-40.43" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2" y="1342" width="3e3" height="61" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2" y="2061" width="3e3" height="61" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1130" y="239" width="126" height="115" rx="4.6" ry="4.6" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1192" cy="208" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1169 256.5h5q5 0 10 5l2.5 2.5q2.5 2.5 7.5-2.5l2.5-2.5q2.5-2.5 7.5-2.5h5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1202.5 286h5q5 0 10 5l2.5 2.5q2.5 2.5 7.5-2.5l2.5-2.5q2.5-2.5 7.5-2.5h5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1147 278.5h5q5 0 10 5l2.5 2.5q2.5 2.5 7.5-2.5l2.5-2.5q2.5-2.5 7.5-2.5h5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1130.4 317.57l11.99 3.57q9.58 2.86 18.15-2.28l5.72-3.43q5.71-3.43 14.28 1.71l5.72 3.43q5.71 3.43 14.28-1.71l5.72-3.43q5.71-3.43 14.28 1.71l5.72 3.43q5.71 3.43 15.23 0.36l15.77-5.07" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1131.6 331.29l7.72-1.65q7.71-1.64 15.21 1.36l3.75 1.5q3.75 1.5 12.32-3.64l5.72-3.43q5.71-3.43 14.28 1.71l5.72 3.43q5.71 3.43 14.28-1.71l5.72-3.43q5.71-3.43 14.28 1.71l5.72 3.43q5.71 3.43 12.71 2.43l3.5-0.5q3.5-0.5-3.5 0.5l-7 1" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1129.9 347.86l14.36-8q8.74-4.86 17.31 0.28l5.72 3.43q5.71 3.43 14.28-1.71l5.72-3.43q5.71-3.43 14.28 1.71l5.72 3.43q5.71 3.43 14.21-1.57l4.25-2.5q4.25-2.5 13.96-0.1l16.86 4.17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="712" y="162" width="240" height="219" rx="8.76" ry="8.76" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="722" y="172" width="220" height="199" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m832.14 371.29v-199.43" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m941.86 271.29h-220" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path transform="rotate(-90,306,491)" d="m285 451q42 0 42 40t-42 40z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1316" y="452" width="229" height="169" rx="3.38" ry="3.38" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1326" y="461" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1326" y="501" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1326" y="541" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1431" cy="476" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1431" cy="516" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1431" cy="557" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1326" y="581" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1430" cy="596" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1555" y="452" width="229" height="169" rx="3.38" ry="3.38" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1565" y="502" width="100" height="110" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1675" y="502" width="100" height="110" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1651" cy="536" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1691" cy="537" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1566" y="461" width="209" height="31" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1670" cy="477" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m822 482v5q0 5-10 5h-5q-5 0-5-10v-5q0-5 10-5h60q10 0 17.07 7.07l705.86 705.86q7.07 7.07 17.07 7.07h50q10 0 10 10v5q0 5-10 5h-5q-5 0-5-5v-5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="10"/>
+<path d="m935 526v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1015 606.89v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1095 688.06v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1175 766.56v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1255 847.56v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1335 927.56v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1415 1007.6v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1495 1087.6v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="932" y="690" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m954 552q3 58 10.5 88t-10.07 50.14" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m939.57 690.14q-21.57-20.14-11.57-50.14t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="838" y="611" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="838" y="472" width="30" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m845.29 611.29q-21.29-20.29-11.29-50.29t11.29-69.14" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m860.71 491.86q2.29 39.14 9.79 69.14t-9.79 50.29" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1012" y="770.89" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1034 632.89q3 58 10.5 88t-10.07 49.82" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1019.6 770.71q-21.57-19.82-11.57-49.82t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1092" y="852.06" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1114 714.06q3 58 10.5 88t-10.07 49.8" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1099.6 851.86q-21.57-19.8-11.57-49.8t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1172" y="930.56" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1194 792.56q3 58 10.5 88t-10.07 50.15" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1179.6 930.71q-21.57-20.15-11.57-50.15t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1252" y="1011.6" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1274 873.56q3 58 10.5 88t-10.07 49.73" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1259.6 1011.3q-21.57-19.73-11.57-49.73t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1332" y="1091.6" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1354 953.56q3 58 10.5 88t-10.07 49.73" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1339.6 1091.3q-21.57-19.73-11.57-49.73t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1412" y="1171.6" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1434 1033.6q3 58 10.5 88t-10.07 49.73" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1419.6 1171.3q-21.57-19.73-11.57-49.73t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1492" y="1251.6" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1514 1113.6q3 58 10.5 88t-10.07 49.73" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1499.6 1251.3q-21.57-19.73-11.57-49.73t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1599" y="1331" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1599" y="1192" width="30" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1606.4 1331.3q-21.43-20.29-11.43-50.29t11.43-69.14" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1621.3 1211.9q2.71 39.14 10.21 69.14t-10.21 50.29" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1279 2061.5v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40v-40h-40l-1.5-40" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m539 1201.5v5q0 5-10 5h-5q-5 0-5-10v-5q0-5 10-5h60q10 0 17.07 7.07l705.86 705.86q7.07 7.07 17.07 7.07h50q10 0 10 10v5q0 5-10 5h-5q-5 0-5-5v-5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="10"/>
+<path d="m652 1245.5v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m732 1326.4v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m812 1407.6v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m892 1486.1v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m972 1567.1v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1052 1647.1v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1132 1727.1v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1212 1807.1v16q0 10 10 10h17" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="649" y="1409.5" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m671 1271.5q3 58 10.5 88t-9.93 50.07" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m656.71 1409.6q-21.71-20.07-11.71-50.07t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="555" y="1330.5" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="555" y="1191.5" width="30" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m562.43 1330.7q-21.43-20.21-11.43-50.21t11.43-69.21" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m577.29 1211.3q2.71 39.21 10.21 69.21t-10.21 50.21" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="729" y="1490.4" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m751 1352.4q3 58 10.5 88t-9.93 49.75" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m736.71 1490.1q-21.71-19.75-11.71-49.75t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="809" y="1571.6" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m831 1433.6q3 58 10.5 88t-9.93 49.73" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m816.71 1571.3q-21.71-19.73-11.71-49.73t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="889" y="1650.1" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m911 1512.1q3 58 10.5 88t-9.93 50.08" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m896.71 1650.1q-21.71-20.08-11.71-50.08t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="969" y="1731.1" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m991 1593.1q3 58 10.5 88t-9.93 50.23" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m976.71 1731.3q-21.71-20.23-11.71-50.23t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1049" y="1811.1" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1071 1673.1q3 58 10.5 88t-9.93 50.23" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1056.7 1811.3q-21.71-20.23-11.71-50.23t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1129" y="1891.1" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1151 1753.1q3 58 10.5 88t-9.93 50.23" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1136.7 1891.3q-21.71-20.23-11.71-50.23t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1209" y="1971.1" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1231 1833.1q3 58 10.5 88t-9.93 50.23" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1216.7 1971.3q-21.71-20.23-11.71-50.23t14-88" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1316" y="2050.5" width="30" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1316" y="1911.5" width="30" height="20" rx="3" ry="3" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1323.6 2050.7q-21.57-20.21-11.57-50.21t11.57-69.21" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1338.4 1931.3q2.57 39.21 10.07 69.21t-10.07 50.21" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2065" y="1008" width="160" height="334" rx="11.2" ry="11.2" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2079" y="1187" width="40" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2240" y="1172" width="229" height="169" rx="3.38" ry="3.38" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2250" y="1202" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2479" y="1172" width="229" height="169" rx="3.38" ry="3.38" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2489" y="1182" width="100" height="150" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2599" y="1182" width="100" height="150" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2575" cy="1256" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2615" cy="1257" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2479" y="891" width="240" height="219" rx="8.76" ry="8.76" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2489" y="901" width="220" height="199" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2599 1099.9v-198.86" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2709.3 1000.4h-220" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2587" y="1152" width="13" height="20" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2570" y="1140" width="30" height="10" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2612" y="1161" width="10" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2564" y="1161" width="10" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2831" y="1032" width="104" height="310" rx="2.08" ry="2.08" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2840" y="1042" width="84" height="290" rx="1.68" ry="1.68" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2860" cy="1193" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path transform="rotate(180,1883,577)" d="m1883 620h-28.5q-6.5 0-5.8-6.46l7.93-73.08q0.7-6.46 7.2-6.46h38.34q6.5 0 7.2 6.46l7.93 73.08q0.7 6.46-5.8 6.46z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2432" y="511" width="440" height="110" rx="16.5" ry="16.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1424" y="162" width="240" height="219" rx="8.76" ry="8.76" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1434" y="172" width="220" height="199" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1544.1 371.29v-199.43" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1653.9 271.29h-220" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2800 511h-30q-10 0-4.66-8.45l3.33-5.28q3.33-5.27 12.78-8.53l71.1-24.48q9.45-3.26 9.45 6.74v30q0 10-10 10h-52" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2432" y="512" width="440" height="80" rx="14.4" ry="14.4" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2037" y="497" width="125" height="25" rx="3.75" ry="3.75" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2053.9 619.86l8-97.72" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2077.9 622.14l1.71-98.28" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2153.3 619.86l-11.43-96.57" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2129.3 622.14l-5.15-100" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1857" y="1886" width="283" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1884" y="1916" width="25" height="144" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2191" y="1891" width="229" height="169" rx="3.38" ry="3.38" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2201" y="1900" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2201" y="1940" width="209" height="30" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2306" cy="1915" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2306" cy="1955" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2201" y="1981" width="209" height="69" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2305" cy="2016" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2084" y="1917" width="25" height="144" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2065.3 1735.7l-14.49 7.64q-8.85 4.67-17.22 10.14l-35.26 23.06q-8.37 5.47-12.84 14.41l-2.77 5.53q-2.76 5.53-7.23-3.41l-2.77-5.53q-2.76-5.53 5.67-10.91l41.14-26.24q8.43-5.38 16.15-11.74l4.64-3.82q4.64-3.82 10.93-8.17l6.28-4.36" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2061 1729l-5.57-8.6q-5.43-8.4 3.51-12.87l5.53-2.77q5.53-2.76 11.37 5.36l6.32 8.76q5.84 8.12 14.94 12.26l6.45 2.93q6.45 2.93-1.9 8.43l-27.3 18q-8.35 5.5-7.58-4.47l0.61-8.02q0.62-8.01-2.88-13.51l-3.5-5.5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2076 1710l3.5-1q3.5-1 5.5 3l1 2q1 2-0.5 5l-1.5 3" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2500 2034v-161" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2509 2033l-1-161" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<ellipse cx="2058" cy="1749" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="1996" cy="1790" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2210" y="1788" width="209" height="21" rx="3.15" ry="3.15" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2354.5 1035h-107.5q-6 0-3.73-5.56l29.31-71.88q2.26-5.56 8.26-5.56h147.32q6 0 8.26 5.56l29.31 71.88q2.27 5.56-3.73 5.56z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2280" y="1036" width="7" height="7" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2266" y="1036" width="7" height="7" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2244.5" y="1161" width="222" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2378" y="1120" width="52" height="38" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2282" y="1232" width="140" height="99" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2343.5" y="1181.5" width="22" height="10" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2327" cy="1186" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2382" cy="1186" rx="5.5" ry="5.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2305.4 1266.1h97.15" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2305 1301.1h97.15" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2243" y="1810" width="20" height="11" rx="1.65" ry="1.65" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2363" y="1810" width="20" height="11" rx="1.65" ry="1.65" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2278 1787.5h-19.5q-7.5 0-7.5-7.5v-39q0-7.5 6.56-11.14l40.88-22.72q6.56-3.64 6.56 3.86v69q0 7.5-7.5 7.5z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2348" y="1762" width="50" height="25" rx="3.75" ry="3.75" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2505" cy="2042" rx="12" ry="8" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path transform="rotate(90,2504.5,1840)" d="m2472 1810h35q30 0 30 30t-30 30h-35z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<ellipse cx="2492" cy="1881" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2517" cy="1880" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2588 2033v-161" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2597 2032l-1-161" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<ellipse cx="2593" cy="2041" rx="12" ry="8" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2580" cy="1880" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="2605" cy="1879" rx="5" ry="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2569 1822v40q0 10 10 10h27q10 0 10-10v-40" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2585.5 1869.5v-48" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2601.5 1869.5v-48" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="185" y="907" width="240" height="219" rx="8.76" ry="8.76" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="195" y="917" width="220" height="199" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m305.29 1115.9v-198.86" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m415 1016.4h-220" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="192" y="1901" width="311" height="160" rx="11.2" ry="11.2" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="863" y="964" width="215" height="378" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="879" y="1176" width="29" height="6" rx=".9" ry=".9" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<ellipse cx="976" cy="1063" rx="51.5" ry="51.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m1082.5 1086v-20" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m1082.5 1252.5v-20" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2678.5" y="1673" width="233" height="387" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2687.5" y="1682" width="215" height="378" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2703.5" y="1894" width="29" height="6" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2907 1804v-20" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2907 1970.5v-20" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="2728" y="1714" width="137" height="128" rx="7.68" ry="7.68" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2796.7 1842.1v-128" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2865.3 1778.1h-137.15" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<g transform="translate(243.5,523.5)">
+<switch>
+<foreignObject width="32" height="17" overflow="visible" pointer-events="all" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+<div color="rgb(255, 255, 255)" display="inline-block" font-family="Helvetica" font-size="16px" font-weight="bold" style="line-height:1.2;vertical-align:top;white-space:nowrap" xmlns="http://www.w3.org/1999/xhtml">
+<div display="inline-block" text-align="inherit" text-decoration="inherit" xmlns="http://www.w3.org/1999/xhtml">OFF</div>
+</div>
+</foreignObject>
+<text x="16" y="17" fill="#FFFFFF" font-family="Helvetica" font-size="16px" font-weight="bold" text-anchor="middle">OFF</text>
+</switch>
+</g>
+<rect x="329" y="521" width="40" height="20" fill="none" pointer-events="none" stroke="#fff"/>
+<g transform="translate(341.5,524.5)">
+<switch>
+<foreignObject width="24" height="17" overflow="visible" pointer-events="all" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+<div color="rgb(255, 255, 255)" display="inline-block" font-family="Helvetica" font-size="16px" font-weight="bold" text-align="right" style="line-height:1.2;vertical-align:top;white-space:nowrap" xmlns="http://www.w3.org/1999/xhtml">
+<div display="inline-block" text-align="inherit" text-decoration="inherit" xmlns="http://www.w3.org/1999/xhtml">ON</div>
+</div>
+</foreignObject>
+<text x="12" y="17" fill="#FFFFFF" font-family="Helvetica" font-size="16px" font-weight="bold" text-anchor="middle">ON</text>
+</switch>
+</g>
+<rect x="677" y="380.5" width="310" height="21" rx="3.15" ry="3.15" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="1390" y="381" width="310" height="21" rx="3.15" ry="3.15" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="150" y="1126.5" width="310" height="21" rx="3.15" ry="3.15" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m2389 1117.5l2.25-4.5q2.25-4.5 12.25-4.5h5.75q5.75 0 7.75 4.5l2 4.5" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m2378 1117.5h52" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path transform="rotate(180,2029.5,2018)" d="m2029.5 2061h-28.5q-6.5 0-5.8-6.46l7.93-73.08q0.7-6.46 7.2-6.46h38.34q6.5 0 7.2 6.46l7.93 73.08q0.7 6.46-5.8 6.46z" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="92" y="1184" width="390" height="158" rx="3.16" ry="3.16" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<path d="m97 2061q0-86 97-81" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m127 2061q-2-62 66-56" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m581.29 2060.4q-11.29-64.43-76.58-58.29" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m605.29 2063.3q-5.29-89.29-101.72-85.72" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="1993.5" y="421.5" width="150" height="10" rx="1.5" ry="1.5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2003.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2018.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2033.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2048.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2063.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2078.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2093.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2108.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+<rect x="2123.5" y="416.5" width="10" height="5" fill="none" pointer-events="none" stroke="#fff" stroke-width="5"/>
+</g>
+</svg>

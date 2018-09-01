@@ -1,10 +1,10 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-import houseSVG from './svg/house.svg'
-import oilSVG from './svg/oil.svg'
-import tapeSVG from './svg/tape.svg'
-import gearSVG from './svg/gear.svg'
+import houseSVG from './svg/house_minified.svg'
+import oilSVG from './svg/oil_minified.svg'
+import tapeSVG from './svg/tape_minified.svg'
+import gearSVG from './svg/gear_minified.svg'
 
 import style from './index.scss'
 import styleHouse from './house.scss'
@@ -16,34 +16,26 @@ const PlayerStore = (
   <$
     state={{
       direction: 'LEFT',
-      isWalking: false
+      isWalking: false,
+      left: -1250,
+      top: -308,
     }}
   />
 )
 
-// state={{
-//   left: -1130,
-//   top: -311
-// top: -742,
-// }}
-
-
-// left: -1460,
-// top: -311,
-
 const HouseStore = (
   <$
     state={{
-      left: -1250,
-      top: -308,
+      startScreen: true,
+      textsAllowed: false,
       shadowScreenText: '',
       introStory: true,
       inIntroZone: false,
       wifiCrossVisible: false,
       wifiFixed: false,
-      leverFixed: true,
-      wireFixed: true,
-      gearFixed: true,
+      leverFixed: false,
+      wireFixed: false,
+      gearFixed: false,
       tapeTaken: false,
       oilTaken: false,
       gearTaken: false
@@ -65,7 +57,7 @@ const Leg = (customLegPartStyle = {}) => (
     <div
       $className={() => cx(style.legPart, style.thigh, (
         PlayerStore.state.isWalking
-          ? style.thighMoveAnimation
+          ? style.thigh-move-animation
           : style.thighStandAnimation
       ))}
       style={customLegPartStyle}
@@ -139,7 +131,7 @@ const Chest = (
     {Head}
     {Arm({ animationDelay: 0 })}
     {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })}
-    {ArmWithLight()}
+    {/* {ArmWithLight()} */}
   </div>
 )
 
@@ -333,10 +325,10 @@ const DynamicGearInteractionArea = (
 )
 
 const HouseBackground = (
-  <div className={styleHouse.house} $style={() => ({
-    left: `calc(${HouseStore.state.left}px + ${window.innerWidth / 2}px)`,
-    top: `calc(${HouseStore.state.top}px + ${window.innerHeight / 2}px)`,
-  })}>
+  <div className={styleHouse.house} style={{
+    left: `calc(${PlayerStore.state.left}px + ${window.innerWidth / 2}px)`,
+    top: `calc(${PlayerStore.state.top}px + ${window.innerHeight / 2}px)`,
+  }}>
     <div innerHTML={houseSVG} />
     {IntoZone}
     {Lever}
@@ -369,12 +361,48 @@ const ShadowScreen = (
   />
 )
 
+const startGame = () => {
+  HouseStore.state.startScreen = false
+  setTimeout(() => {
+    HouseStore.state.textsAllowed = true
+    setTemporaryText('You\'ve been working as always at night...')
+    setTimeout(() => {
+      setTemporaryText('And suddenly you find yourself...', 9000)
+      setTimeout(() => {
+        HouseStore.state.shadowScreenText = '<span>DISCONNECTED</span>'
+        setTimeout(() => {
+          HouseStore.state.shadowScreenText = ''
+          HouseStore.state.introStory = false
+          HouseStore.state.wifiCrossVisible = true
+          PlayerStore.state.left = -1460
+          PlayerStore.state.top = -311
+          HouseStore.state.inIntroZone = true
+        }, 6000)
+      }, 3000)
+    }, 3000)
+  }, 1000)
+}
+
 const App = (
   <div>
-    {HouseBackground}
-    {Hero}
-    {Tips}
-    {ShadowScreen}
+    {
+      () => (
+        HouseStore.state.startScreen
+          ? (
+            <div className={styleHouse.startScreen}>
+              <button onclick={startGame}>PLAY</button>
+            </div>
+          )
+          : (
+              <$>
+                {HouseBackground}
+                {Hero}
+                {Tips}
+                {ShadowScreen}
+              </$>
+            )
+      )
+    }
   </div>
 )
 
@@ -387,18 +415,44 @@ const isInteractiveAreaActive = (Area) => {
   )
 }
 
-const gameLoop = () => {
+const walkingLoop = () => {
+  let start = Date.now()
+  if (HouseStore.state.startScreen || !HouseStore.state.textsAllowed) {
+    setTimeout(walkingLoop, 30)
+    return
+  }
+
   if (PlayerStore.state.isWalking) {
     switch (PlayerStore.state.direction) {
       case 'LEFT':
-      if (HouseStore.state.left < -30) HouseStore.state.left += 3
+        if (PlayerStore.state.left < -30) PlayerStore.state.left += 3
         break
       case 'RIGHT':
-        if (HouseStore.state.left > -1770) HouseStore.state.left -= 3
+        if (PlayerStore.state.left > -1770) PlayerStore.state.left -= 3
         break
       default:
         break
     }
+  }
+
+  let end = Date.now()
+  setTimeout(walkingLoop, 30 - (end - start))
+}
+
+const walkAnim = () => {
+  if (HouseBackground._n) {
+    HouseBackground._n.style.left = `calc(${PlayerStore.state.left}px + ${window.innerWidth / 2}px)`
+    HouseBackground._n.style.top = `calc(${PlayerStore.state.top}px + ${window.innerHeight / 2}px)`
+  }
+  requestAnimationFrame(walkAnim)
+}
+
+walkAnim()
+
+const gameLoop = () => {
+  if (HouseStore.state.startScreen || !HouseStore.state.textsAllowed) {
+    setTimeout(gameLoop, 250)
+    return
   }
 
   let tipsText = ''
@@ -483,12 +537,11 @@ const gameLoop = () => {
     }
   }
 
-  setTimeout(gameLoop, 30)
+  setTimeout(gameLoop, 250)
 }
 
 document.addEventListener('keydown', (e) => {
-  console.log(e.keyCode)
-  if (HouseStore.state.wifiFixed || HouseStore.state.introStory) return
+  if (HouseStore.state.wifiFixed || HouseStore.state.introStory || HouseStore.state.startScreen) return
   switch (e.keyCode) {
     case 39:
       PlayerStore.state.direction = 'RIGHT'
@@ -587,25 +640,25 @@ document.addEventListener('keydown', (e) => {
       break
     case 40:
       if (isInteractiveAreaActive(Stair1FloorInteractionArea)) {
-        HouseStore.state.left = -970
-        HouseStore.state.top = -742
+        PlayerStore.state.left = -970
+        PlayerStore.state.top = -742
         PlayerStore.state.direction = 'RIGHT'
       }
       if (isInteractiveAreaActive(Stair0Floor2InteractionArea)) {
-        HouseStore.state.left = -800
-        HouseStore.state.top = -1175
+        PlayerStore.state.left = -800
+        PlayerStore.state.top = -1175
         PlayerStore.state.direction = 'RIGHT'
       }
       break
     case 38:
       if (isInteractiveAreaActive(Stair0Floor1InteractionArea)) {
-        HouseStore.state.left = -500
-        HouseStore.state.top = -311
+        PlayerStore.state.left = -500
+        PlayerStore.state.top = -311
         PlayerStore.state.direction = 'LEFT'
       }
       if (isInteractiveAreaActive(Stairm1FloorInteractionArea)) {
-        HouseStore.state.left = -335
-        HouseStore.state.top = -742
+        PlayerStore.state.left = -335
+        PlayerStore.state.top = -742
         PlayerStore.state.direction = 'LEFT'
       }
       break
@@ -619,6 +672,7 @@ document.addEventListener('keyup', (e) => {
 })
 
 gameLoop()
+walkingLoop()
 
 let resizeTimeout
 window.addEventListener('resize', () => {
@@ -627,19 +681,3 @@ window.addEventListener('resize', () => {
     window.location.reload()
   }, 250)
 })
-
-setTemporaryText('You\'ve been working as always at night...')
-setTimeout(() => {
-  setTemporaryText('And suddenly you find yourself...')
-  setTimeout(() => {
-    HouseStore.state.shadowScreenText = '<span>DISCONNECTED</span>'
-    setTimeout(() => {
-      HouseStore.state.shadowScreenText = ''
-      HouseStore.state.introStory = false
-      HouseStore.state.wifiCrossVisible = true
-      HouseStore.state.left = -1460
-      HouseStore.state.top = -311
-      HouseStore.state.inIntroZone = true
-    }, 6000)
-  }, 2000)
-}, 2000)

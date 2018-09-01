@@ -9,6 +9,10 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+* {
+  user-select: none;
+}
+
 .hero {
   position: fixed;
   left: 50%;
@@ -347,7 +351,7 @@ html, body {
   }
 }
 
-.thighMoveAnimation {
+.thigh-move-animation {
   transform-origin: 50% 10%;
   animation: thigh-move-animation;
   animation-duration: 2s;

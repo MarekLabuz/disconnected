@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg version="1.1" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(.5 .5)" fill="none" pointer-events="none" stroke="#fff" stroke-width="5">
+<ellipse cx="95" cy="91" rx="18" ry="18"/>
+<path d="m36 21.57l29 19.43 15-7 4-31.29" stroke-miterlimit="10"/>
+<path d="m163.43 36.43l-16.43 25.57 6 16 29.86 5.29" stroke-miterlimit="10"/>
+<path d="m183.43 99.86l-30.43 6.14-5 14 14.29 30.71" stroke-miterlimit="10"/>
+<path d="m150.86 163.29l-27.86-18.29-14 5-6 33" stroke-miterlimit="10"/>
+<path d="m22.86 149.57l22.14-27.57-7-14-34.57-5.86" stroke-miterlimit="10"/>
+<path d="m102.86 2.14l6.14 31.86 16 7 24.71-18.29" stroke-miterlimit="10"/>
+<path d="m36 19l-17 18 26 25-7 16-34.57 4.14" stroke-miterlimit="10"/>
+<path d="m85.14 183.29l-5.14-34.29-15-6-28.43 19.14" stroke-miterlimit="10"/>
+<path d="m82 2h23" stroke-miterlimit="10"/>
+<path d="m2 104v-24" stroke-miterlimit="10"/>
+<path d="m37 165l-16-17" stroke-miterlimit="10"/>
+<path d="m106 185h-23" stroke-miterlimit="10"/>
+<path d="m165 150l-16 15" stroke-miterlimit="10"/>
+<path d="m185 81v21" stroke-miterlimit="10"/>
+<path d="m149 20l18 17" stroke-miterlimit="10"/>
+</g>
+</svg>
