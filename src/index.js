@@ -1,11 +1,11 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-import houseSVG from './minified_svg/house.svg'
-import oilSVG from './minified_svg/oil.svg'
+import houseSVG from './minified_svg/house7.svg'
+import oilSVG from './minified_svg/oil2.svg'
 import tapeSVG from './minified_svg/tape.svg'
-import gearSVG from './minified_svg/gear.svg'
-import stairsSVG from './minified_svg/stairs.svg'
+import gearSVG from './minified_svg/gear2.svg'
+import stairsSVG from './minified_svg/stairs3.svg'
 import windowSVG from './minified_svg/window.svg'
 
 import style from './sass/index.scss'
@@ -28,10 +28,10 @@ const PlayerStore = (
 const HouseStore = (
   <$
     state={{
-      startScreen: true,
-      textsAllowed: false,
+      startScreen: false,
+      textsAllowed: true,
       shadowScreenText: '',
-      introStory: true,
+      introStory: false,
       inIntroZone: false,
       wifiCrossVisible: false,
       wifiFixed: false,
@@ -132,14 +132,14 @@ const Chest = (
   >
     {Head}
     {Arm({ animationDelay: 0 })}
-    {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })}
+    {/* {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })} */}
     {ArmWithLight()}
   </div>
 )
 
 const Hero = (
   <div
-    $className={() => cx(style.hero, HouseStore.state.introStory && style.programming)}
+    $className={() => cx(style.hero, /* HouseStore.state.introStory && style.programming */ )}
     $style={() => ({
       transform: PlayerStore.state.direction === 'RIGHT'
         ? 'scaleX(-1) translate(50%, -50%)'
@@ -232,35 +232,35 @@ const Oil = <div className={styleHouse.oil} innerHTML={oilSVG} />
 const OilInteractionArea = InteractionAreas[4]
 const WireInteractionArea = InteractionAreas[5]
 
-const Sparkle = (side, rotate, delay) => (
-  <div
-    className={styleHouse.sparkle}
-    style={{
-      transform: side === 'left' ?  `rotateZ(${rotate}deg)` : `rotateZ(${rotate}deg) scaleX(-1)`,
-      left: side === 'left' ? '715px' : '805px'
-    }}
-  >
-    <div style={{ animationDelay: `${delay}s` }}/>
-  </div>
-)
+// const Sparkle = (side, rotate, delay) => (
+//   <div
+//     className={styleHouse.sparkle}
+//     style={{
+//       transform: side === 'left' ?  `rotateZ(${rotate}deg)` : `rotateZ(${rotate}deg) scaleX(-1)`,
+//       left: side === 'left' ? '715px' : '805px'
+//     }}
+//   >
+//     <div style={{ animationDelay: `${delay}s` }}/>
+//   </div>
+// )
 
 const Wire = (
   <div className={styleHouse.wireContainer}>
-    <div>
+    {/* <div>
       <div />
       <div />
       <div />
       <div />
-    </div>
+    </div> */}
     {
       () => !HouseStore.state.wireFixed ? (
         <$>
-          {Sparkle('left', -35, 0)}
+          {/* {Sparkle('left', -35, 0)}
           {Sparkle('left', 15, 0.2)}
           {Sparkle('left', -15, 0.4)}
           {Sparkle('right', -15, 0)}
           {Sparkle('right', 35, 0.2)}
-          {Sparkle('right', 15, 0.4)}
+          {Sparkle('right', 15, 0.4)} */}
         </$>
       ) : (
         <div className={styleHouse.fixingWire} />
@@ -343,25 +343,25 @@ const ShadowScreen = (
 )
 
 const startGame = () => {
-  HouseStore.state.startScreen = false
-  setTimeout(() => {
-    HouseStore.state.textsAllowed = true
-    setTemporaryText('You\'ve been working as always at night...')
-    setTimeout(() => {
-      setTemporaryText('And suddenly you find yourself...', 9000)
-      setTimeout(() => {
-        HouseStore.state.shadowScreenText = '<span>DISCONNECTED</span>'
-        setTimeout(() => {
+  // HouseStore.state.startScreen = false
+  // setTimeout(() => {
+  //   HouseStore.state.textsAllowed = true
+  //   setTemporaryText('You\'ve been working as always at night...')
+  //   setTimeout(() => {
+  //     setTemporaryText('And suddenly you find yourself...', 9000)
+  //     setTimeout(() => {
+  //       HouseStore.state.shadowScreenText = '<span>DISCONNECTED</span>'
+  //       setTimeout(() => {
           HouseStore.state.shadowScreenText = ''
-          HouseStore.state.introStory = false
+          // HouseStore.state.introStory = false
           HouseStore.state.wifiCrossVisible = true
           PlayerStore.state.left = -1460
           PlayerStore.state.top = -311
           HouseStore.state.inIntroZone = true
-        }, 6000)
-      }, 3000)
-    }, 3000)
-  }, 1000)
+  //       }, 6000)
+  //     }, 3000)
+  //   }, 3000)
+  // }, 1000)
 }
 
 const App = (
@@ -522,7 +522,7 @@ const gameLoop = () => {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (HouseStore.state.wifiFixed || HouseStore.state.introStory || HouseStore.state.startScreen) return
+  if (HouseStore.state.wifiFixed || /* HouseStore.state.introStory || */ HouseStore.state.startScreen) return
   switch (e.keyCode) {
     case 39:
       PlayerStore.state.direction = 'RIGHT'
