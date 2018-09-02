@@ -20,12 +20,17 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
           { loader: 'style-loader' },
-          // {
-          //   loader: 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:2]'
-          // },
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              modules: true,
+              localIdentName: '[hash:base64:3]'
+            }
+          },
           { loader: 'sass-loader' }
         ]
       },

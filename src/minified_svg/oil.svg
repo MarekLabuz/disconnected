@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
-<svg version="1.1" viewBox="0 0 150 126" xmlns="http://www.w3.org/2000/svg">
+<svg version="1.1" width="150px" height="126px" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(.5 .5)">
 <path d="m96 2h-20q-10 0-17.07 7.07l-25.86 25.86q-7.07 7.07-7.07 17.07v60q0 10 10 10h100q10 0 10-10v-80q0-10-7.07-17.07l-6.47-6.47q-6.46-6.46-16.46-6.46h-20" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>
 <path d="m115 27l13.93 13.93q7.07 7.07 7.07-1.93v-4.5q0-4.5-6.87-11.77l-5.06-5.37q-5.07-5.36-13.57-4.86l-4.25 0.25q-4.25 0.25 2.57 7.56l7.18 7.69" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="5"/>

@@ -1,13 +1,15 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-import houseSVG from './svg/house_minified.svg'
-import oilSVG from './svg/oil_minified.svg'
-import tapeSVG from './svg/tape_minified.svg'
-import gearSVG from './svg/gear_minified.svg'
+import houseSVG from './minified_svg/house.svg'
+import oilSVG from './minified_svg/oil.svg'
+import tapeSVG from './minified_svg/tape.svg'
+import gearSVG from './minified_svg/gear.svg'
+import stairsSVG from './minified_svg/stairs.svg'
+import windowSVG from './minified_svg/window.svg'
 
-import style from './index.scss'
-import styleHouse from './house.scss'
+import style from './sass/index.scss'
+import styleHouse from './sass/house.scss'
 
 const centerX = window.innerWidth / 2
 const centerY = window.innerHeight / 2
@@ -57,7 +59,7 @@ const Leg = (customLegPartStyle = {}) => (
     <div
       $className={() => cx(style.legPart, style.thigh, (
         PlayerStore.state.isWalking
-          ? style.thigh-move-animation
+          ? style.thighMoveAnimation
           : style.thighStandAnimation
       ))}
       style={customLegPartStyle}
@@ -131,7 +133,7 @@ const Chest = (
     {Head}
     {Arm({ animationDelay: 0 })}
     {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })}
-    {/* {ArmWithLight()} */}
+    {ArmWithLight()}
   </div>
 )
 
@@ -208,51 +210,27 @@ const ComputerInteractionArea = (
   />
 )
 
-const Stair1FloorInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 470, top: 120, width: 80, height: 300 }}
-  />
-)
+const InteractionAreas = [
+  { left: 470, top: 120, width: 80, height: 300 },
+  { left: 940, top: 555, width: 80, height: 300 },
+  { left: 300, top: 555, width: 80, height: 300 },
+  { left: 765, top: 1000, width: 80, height: 300 },
+  { left: 1570, top: 555, width: 200, height: 300 },
+  { left: 620, top: 555, width: 270, height: 300 },
+  { left: 1170, top: 1000, width: 170, height: 300 },
+  { left: 50, top: 1000, width: 350, height: 300 },
+  { left: 1650, top: 120, width: 150, height: 300 }
+].map(style => <div className={cx(styleHouse.interactionArea)} style={style}/>)
 
-const Stair0Floor1InteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 940, top: 555, width: 80, height: 300 }}
-  />
-)
+const Stair1FloorInteractionArea = InteractionAreas[0]
+const Stair0Floor1InteractionArea = InteractionAreas[1]
+const Stair0Floor2InteractionArea = InteractionAreas[2]
+const Stairm1FloorInteractionArea = InteractionAreas[3]
 
-const Stair0Floor2InteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 300, top: 555, width: 80, height: 300 }}
-  />
-)
+const Oil = <div className={styleHouse.oil} innerHTML={oilSVG} />
 
-const Stairm1FloorInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 765, top: 1000, width: 80, height: 300 }}
-  />
-)
-
-const Oil = (
-  <div className={styleHouse.oil} innerHTML={oilSVG}></div>
-)
-
-const OilInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 1570, top: 555, width: 200, height: 300 }}
-  />
-)
-
-const WireInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 620, top: 555, width: 270, height: 300 }}
-  />
-)
+const OilInteractionArea = InteractionAreas[4]
+const WireInteractionArea = InteractionAreas[5]
 
 const Sparkle = (side, rotate, delay) => (
   <div
@@ -291,38 +269,35 @@ const Wire = (
   </div>
 )
 
-const Tape = (
-  <div className={styleHouse.tape} innerHTML={tapeSVG}></div>
-)
+const Stairs = [
+  { left: 484, top: 279 },
+  { left: 311, top: 712 }
+].map(style => <div className={styleHouse.static} innerHTML={stairsSVG} style={style} />)
 
-const TapeInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 1170, top: 1000, width: 170, height: 300 }}
-  />
-)
+const Windows = [
+  { left: 857, top: 95 },
+  { left: 426, top: 95 },
+  { left: 112, top: 542 },
+  { left: 1484, top: 542 }
+].map(style => (
+  <div className={styleHouse.static} innerHTML={windowSVG} style={style}></div>
+))
+
+const Tape = <div className={styleHouse.tape} innerHTML={tapeSVG}></div>
+
+const TapeInteractionArea = InteractionAreas[6]
 
 const StaticGear = (customStyle = {}) => (
   <div className={cx(styleHouse.gear, styleHouse.staticGear)} innerHTML={gearSVG} style={customStyle}></div>
 )
 
-const StaticGearInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 50, top: 1000, width: 350, height: 300 }}
-  />
-)
+const StaticGearInteractionArea = InteractionAreas[7]
 
 const DynamicGear = (
-  <div className={cx(styleHouse.gear, styleHouse.dynamicGear)} innerHTML={gearSVG}></div>
+  <div className={cx(styleHouse.gear, styleHouse.dynamicGear)} innerHTML={gearSVG} />
 )
 
-const DynamicGearInteractionArea = (
-  <div
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 1650, top: 120, width: 150, height: 300 }}
-  />
-)
+const DynamicGearInteractionArea = InteractionAreas[8]
 
 const HouseBackground = (
   <div className={styleHouse.house} style={{
@@ -330,6 +305,12 @@ const HouseBackground = (
     top: `calc(${PlayerStore.state.top}px + ${window.innerHeight / 2}px)`,
   }}>
     <div innerHTML={houseSVG} />
+    {Stairs[0]}
+    {Stairs[1]}
+    {Windows[0]}
+    {Windows[1]}
+    {Windows[2]}
+    {Windows[3]}
     {IntoZone}
     {Lever}
     {LeverInteractionArea}
