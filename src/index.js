@@ -1,12 +1,15 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-import houseSVG from './minified_svg/house7.svg'
-import oilSVG from './minified_svg/oil2.svg'
-import tapeSVG from './minified_svg/tape.svg'
-import gearSVG from './minified_svg/gear2.svg'
-import stairsSVG from './minified_svg/stairs3.svg'
-import windowSVG from './minified_svg/window.svg'
+import houseSVG from './svg/house11.svg'
+import oilSVG from './svg/oil2.svg'
+import tapeSVG from './svg/tape.svg'
+import gearSVG from './svg/gear2.svg'
+import stairsSVG from './svg/stairs3.svg'
+import windowSVG from './svg/window.svg'
+import doorSVG from './svg/door.svg'
+import drawers1SVG from './svg/drawers1.svg'
+import drawers2SVG from './svg/drawers2.svg'
 
 import style from './sass/index.scss'
 import styleHouse from './sass/house.scss'
@@ -29,11 +32,10 @@ const HouseStore = (
   <$
     state={{
       startScreen: false,
-      textsAllowed: true,
       shadowScreenText: '',
       introStory: false,
       inIntroZone: false,
-      wifiCrossVisible: false,
+      wifiCrossVisible: true,
       wifiFixed: false,
       leverFixed: false,
       wireFixed: false,
@@ -133,7 +135,7 @@ const Chest = (
     {Head}
     {Arm({ animationDelay: 0 })}
     {/* {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })} */}
-    {ArmWithLight()}
+    {/* {ArmWithLight()} */}
   </div>
 )
 
@@ -283,6 +285,22 @@ const Windows = [
   <div className={styleHouse.static} innerHTML={windowSVG} style={style}></div>
 ))
 
+const Doors = [
+  { left: 421, top: 570 },
+  { left: 1606, top: 1002 }
+].map(style => (
+  <div className={styleHouse.static} innerHTML={doorSVG} style={style}></div>
+))
+
+const Drawers = [
+  { style: { left: 879, top: 268 }, type: drawers1SVG },
+  { style: { left: 1313, top: 1133 }, type: drawers1SVG },
+  { style: { left: 735, top: 268 }, type: drawers2SVG },
+  { style: { left: 1486, top: 702 }, type: drawers2SVG },
+].map(({ style, type }) => (
+  <div className={styleHouse.static} innerHTML={type} style={style}></div>
+))
+
 const Tape = <div className={styleHouse.tape} innerHTML={tapeSVG}></div>
 
 const TapeInteractionArea = InteractionAreas[6]
@@ -311,6 +329,12 @@ const HouseBackground = (
     {Windows[1]}
     {Windows[2]}
     {Windows[3]}
+    {Doors[0]}
+    {Doors[1]}
+    {Drawers[0]}
+    {Drawers[1]}
+    {Drawers[2]}
+    {Drawers[3]}
     {IntoZone}
     {Lever}
     {LeverInteractionArea}
@@ -343,25 +367,20 @@ const ShadowScreen = (
 )
 
 const startGame = () => {
-  // HouseStore.state.startScreen = false
-  // setTimeout(() => {
-  //   HouseStore.state.textsAllowed = true
-  //   setTemporaryText('You\'ve been working as always at night...')
-  //   setTimeout(() => {
-  //     setTemporaryText('And suddenly you find yourself...', 9000)
-  //     setTimeout(() => {
-  //       HouseStore.state.shadowScreenText = '<span>DISCONNECTED</span>'
-  //       setTimeout(() => {
-          HouseStore.state.shadowScreenText = ''
-          // HouseStore.state.introStory = false
-          HouseStore.state.wifiCrossVisible = true
-          PlayerStore.state.left = -1460
-          PlayerStore.state.top = -311
-          HouseStore.state.inIntroZone = true
-  //       }, 6000)
-  //     }, 3000)
-  //   }, 3000)
-  // }, 1000)
+  HouseStore.state.startScreen = false
+  HouseStore.state.shadowScreenText = 'You\'ve been working as always at night...'
+  setTimeout(() => {
+    HouseStore.state.shadowScreenText = 'And suddenly you find yourself...'
+    setTimeout(() => {
+      HouseStore.state.shadowScreenText = 'DISCONNECTED'
+      setTimeout(() => {
+        HouseStore.state.shadowScreenText = ''
+        PlayerStore.state.left = -1460
+        PlayerStore.state.top = -311
+        HouseStore.state.inIntroZone = true
+      }, 3000)
+    }, 3000)
+  }, 3000)
 }
 
 const App = (
@@ -398,7 +417,7 @@ const isInteractiveAreaActive = (Area) => {
 
 const walkingLoop = () => {
   let start = Date.now()
-  if (HouseStore.state.startScreen || !HouseStore.state.textsAllowed) {
+  if (HouseStore.state.startScreen) {
     setTimeout(walkingLoop, 30)
     return
   }
@@ -431,7 +450,7 @@ const walkAnim = () => {
 walkAnim()
 
 const gameLoop = () => {
-  if (HouseStore.state.startScreen || !HouseStore.state.textsAllowed) {
+  if (HouseStore.state.startScreen) {
     setTimeout(gameLoop, 250)
     return
   }

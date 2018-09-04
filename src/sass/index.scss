@@ -23,13 +23,13 @@ html, body {
   height: 350px;
 }
 
-.standardAnimation {
-  transform-origin: 50% 10%;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-timing-function: ease-in-out;
-}
+// .standardAnimation {
+//   transform-origin: 50% 10%;
+//   animation-duration: 1s;
+//   animation-iteration-count: infinite;
+//   animation-direction: normal;
+//   animation-timing-function: ease-in-out;
+// }
 
 @keyframes head-move-animation {
   0% {
@@ -46,10 +46,10 @@ html, body {
 .headMoveAnimation {
   transform-origin: 50% 80%;
   animation: head-move-animation;
-  // animation-duration: 1s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 .head {
@@ -79,9 +79,9 @@ html, body {
   transform-origin: 50% 80%;
   animation: chest-stand-animation;
   animation-duration: 2s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes chest-move-animation {
@@ -99,10 +99,10 @@ html, body {
 .chestMoveAnimation {
   transform-origin: 50% 80%;
   animation: chest-move-animation;
-  // animation-duration: 1s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 .chest {
@@ -145,9 +145,9 @@ html, body {
   transform-origin: 50% 10%;
   animation: shoulder-stand-animation;
   animation-duration: 3s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes shoulder-move-animation {
@@ -163,21 +163,18 @@ html, body {
 }
 
 .shoulderMoveAnimation {
-  // transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
   animation: shoulder-move-animation;
   animation-duration: 2s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes shoulder-with-light-animation {
   0% {
     transform: rotateZ(5deg);
   }
-  // 45% {
-  //   transform: rotateZ(25deg);
-  // }
   100% {
     transform: rotateZ(15deg);
   }
@@ -186,10 +183,10 @@ html, body {
 .shoulderWithLightAnimation {
   transform-origin: 50% 10%;
   animation: shoulder-with-light-animation;
-  // animation-duration: 1s;
-  // animation-iteration-count: infinite;
-  // animation-direction: alternate;
-  // animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
 }
 
 .shoulder {
@@ -213,12 +210,12 @@ html, body {
 }
 
 .forearmStandAnimation {
-  // transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
   animation: forearm-stand-animation;
   animation-duration: 3s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes forearm-move-animation {
@@ -234,21 +231,18 @@ html, body {
 }
 
 .forearmMoveAnimation {
-  // transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
   animation: forearm-move-animation;
   animation-duration: 2s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes forearm-with-light-animation {
   0% {
     transform: rotateZ(45deg);
   }
-  // 45% {
-  //   transform: rotateZ(45deg);
-  // }
   100% {
     transform: rotateZ(55deg);
   }
@@ -360,12 +354,12 @@ html, body {
 }
 
 .thighMoveAnimation {
-  // transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
   animation: thigh-move-animation;
   animation-duration: 2s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 .thigh {
@@ -405,12 +399,12 @@ html, body {
 }
 
 .calfMoveAnimation {
-  // transform-origin: 50% 10%;
+  transform-origin: 50% 10%;
   animation-name: calf-move-animation;
   animation-duration: 2s;
-  // animation-iteration-count: infinite;
-  // animation-direction: normal;
-  // animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
 }
 
 .calf {
