@@ -159,80 +159,6 @@
   }
 }
 
-// .wireContainer {
-//   & > div:first-child {
-//     div {
-//       position: absolute;
-//       height: 5px;
-//       background-color: white;
-//     }
-
-//     & > div:nth-child(1) {
-//       left: 680px;
-//       top: 782px;
-//       width: 41px;
-//     }
-
-//     & > div:nth-child(2) {
-//       left: 659px;
-//       top: 803px;
-//       width: 46px;
-//       transform: rotateZ(90deg);
-//     }
-
-//     & > div:nth-child(3) {
-//       left: 817px;
-//       top: 803px;
-//       width: 46px;
-//       transform: rotateZ(90deg);
-//     }
-
-//     & > div:nth-child(4) {
-//       left: 801px;
-//       top: 782px;
-//       width: 41px;
-//     }
-//   }
-// }
-
-// @keyframes sparkle-animation {
-//   0% {
-//     left: 0;
-//     opacity: 0;
-//   }
-//   50% {
-//     left: 60%;
-//     opacity: 1;
-//   }
-//   100% {
-//     left: 100%;
-//     opacity: 0;
-//   }
-// }
-
-// .sparkle {
-//   position: absolute;
-//   top: 783px;
-//   // background-color: red;
-//   width: 30px;
-//   height: 3px;
-//   transform-origin: 0 0;
-
-//   & > div {
-//     position: relative;
-//     width: 10px;
-//     height: 100%;
-//     background-color: yellow;
-//     opacity: 0;
-
-//     animation: sparkle-animation;
-//     animation-duration: 0.5s;
-//     animation-iteration-count: infinite;
-//     animation-direction: normal;
-//     animation-timing-function: linear;
-//   }
-// }
-
 .tape {
   position: absolute;
   top: 1072px;
@@ -244,11 +170,12 @@
 }
 
 .fixingWire {
-  width: 100px;
-  height: 9px;
+  width: 51px;
+  height: 6px;
   position: absolute;
-  top: 780px;
-  left: 713px;
+  top: 792px;
+  left: 722px;
+  transform: rotate(17deg);
   background-color: white;
 }
 

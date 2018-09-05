@@ -1,15 +1,18 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-import houseSVG from './svg/house11.svg'
-import oilSVG from './svg/oil2.svg'
+import houseSVG from './svg/house2.svg'
+import oilSVG from './svg/oil.svg'
 import tapeSVG from './svg/tape.svg'
-import gearSVG from './svg/gear2.svg'
-import stairsSVG from './svg/stairs3.svg'
+import gearSVG from './svg/gear.svg'
+import stairsSVG from './svg/stairs.svg'
 import windowSVG from './svg/window.svg'
+import windowSillSVG from './svg/window_sill.svg'
 import doorSVG from './svg/door.svg'
 import drawers1SVG from './svg/drawers1.svg'
 import drawers2SVG from './svg/drawers2.svg'
+import wireSVG from './svg/wire.svg'
+import tableSVG from './svg/table.svg'
 
 import style from './sass/index.scss'
 import styleHouse from './sass/house.scss'
@@ -22,8 +25,8 @@ const PlayerStore = (
     state={{
       direction: 'LEFT',
       isWalking: false,
-      left: -1250,
-      top: -308,
+      left: -1460,
+      top: -311,
     }}
   />
 )
@@ -34,7 +37,7 @@ const HouseStore = (
       startScreen: false,
       shadowScreenText: '',
       introStory: false,
-      inIntroZone: false,
+      inIntroZone: true,
       wifiCrossVisible: true,
       wifiFixed: false,
       leverFixed: false,
@@ -134,14 +137,13 @@ const Chest = (
   >
     {Head}
     {Arm({ animationDelay: 0 })}
-    {/* {() => HouseStore.state.introStory && Arm({ animationDelay: 0 })} */}
     {/* {ArmWithLight()} */}
   </div>
 )
 
 const Hero = (
   <div
-    $className={() => cx(style.hero, /* HouseStore.state.introStory && style.programming */ )}
+    className={style.hero}
     $style={() => ({
       transform: PlayerStore.state.direction === 'RIGHT'
         ? 'scaleX(-1) translate(50%, -50%)'
@@ -234,39 +236,12 @@ const Oil = <div className={styleHouse.oil} innerHTML={oilSVG} />
 const OilInteractionArea = InteractionAreas[4]
 const WireInteractionArea = InteractionAreas[5]
 
-// const Sparkle = (side, rotate, delay) => (
-//   <div
-//     className={styleHouse.sparkle}
-//     style={{
-//       transform: side === 'left' ?  `rotateZ(${rotate}deg)` : `rotateZ(${rotate}deg) scaleX(-1)`,
-//       left: side === 'left' ? '715px' : '805px'
-//     }}
-//   >
-//     <div style={{ animationDelay: `${delay}s` }}/>
-//   </div>
-// )
-
 const Wire = (
-  <div className={styleHouse.wireContainer}>
-    {/* <div>
-      <div />
-      <div />
-      <div />
-      <div />
-    </div> */}
+  <div>
     {
-      () => !HouseStore.state.wireFixed ? (
-        <$>
-          {/* {Sparkle('left', -35, 0)}
-          {Sparkle('left', 15, 0.2)}
-          {Sparkle('left', -15, 0.4)}
-          {Sparkle('right', -15, 0)}
-          {Sparkle('right', 35, 0.2)}
-          {Sparkle('right', 15, 0.4)} */}
-        </$>
-      ) : (
-        <div className={styleHouse.fixingWire} />
-      )
+      () => !HouseStore.state.wireFixed
+        ? <div className={styleHouse.static} innerHTML={wireSVG} style={{ left: 728, top: 762 }} />
+        : <div className={styleHouse.fixingWire} />
     }
   </div>
 )
@@ -277,12 +252,15 @@ const Stairs = [
 ].map(style => <div className={styleHouse.static} innerHTML={stairsSVG} style={style} />)
 
 const Windows = [
-  { left: 857, top: 95 },
-  { left: 426, top: 95 },
-  { left: 112, top: 542 },
-  { left: 1484, top: 542 }
-].map(style => (
-  <div className={styleHouse.static} innerHTML={windowSVG} style={style}></div>
+  { style: { left: 857, top: 95 }, windowSill: true },
+  { style: { left: 426, top: 95 }, windowSill: true },
+  { style: { left: 112, top: 542 }, windowSill: true },
+  { style: { left: 1484, top: 542 } }
+].map(({ style, windowSill }) => (
+  <div>
+    <div className={styleHouse.static} innerHTML={windowSVG} style={style}></div>
+    {windowSill && <div className={styleHouse.static} innerHTML={windowSillSVG} style={{ left: style.left - 20, top: style.top + 132 }}></div>}
+  </div>
 ))
 
 const Doors = [
@@ -299,6 +277,13 @@ const Drawers = [
   { style: { left: 1486, top: 702 }, type: drawers2SVG },
 ].map(({ style, type }) => (
   <div className={styleHouse.static} innerHTML={type} style={style}></div>
+))
+
+const Tables = [
+  { left: 1160, top: 257 },
+  { left: 1108, top: 1121 }
+].map(style => (
+  <div className={styleHouse.static} innerHTML={tableSVG} style={style}></div>
 ))
 
 const Tape = <div className={styleHouse.tape} innerHTML={tapeSVG}></div>
@@ -323,18 +308,11 @@ const HouseBackground = (
     top: `calc(${PlayerStore.state.top}px + ${window.innerHeight / 2}px)`,
   }}>
     <div innerHTML={houseSVG} />
-    {Stairs[0]}
-    {Stairs[1]}
-    {Windows[0]}
-    {Windows[1]}
-    {Windows[2]}
-    {Windows[3]}
-    {Doors[0]}
-    {Doors[1]}
-    {Drawers[0]}
-    {Drawers[1]}
-    {Drawers[2]}
-    {Drawers[3]}
+    {() => Stairs}
+    {() => Windows}
+    {() => Doors}
+    {() => Drawers}
+    {() => Tables}
     {IntoZone}
     {Lever}
     {LeverInteractionArea}
@@ -375,9 +353,7 @@ const startGame = () => {
       HouseStore.state.shadowScreenText = 'DISCONNECTED'
       setTimeout(() => {
         HouseStore.state.shadowScreenText = ''
-        PlayerStore.state.left = -1460
-        PlayerStore.state.top = -311
-        HouseStore.state.inIntroZone = true
+        // HouseStore.state.inIntroZone = true
       }, 3000)
     }, 3000)
   }, 3000)
