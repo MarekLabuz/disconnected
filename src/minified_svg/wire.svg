@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg version="1.1" width="64px" height="25px" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(.5 .5)" fill="none" pointer-events="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2">
+<path d="m53 4q0 10 10 20"/>
+<path d="m43 24q9-4 14.5-2t5.5 2"/>
+<path d="m46 10q16 14 17 14"/>
+<path d="m17 16q-4-8-16-10"/>
+<path d="m9 21q0-8-8-15"/>
+<path d="m18 1q-5 7-16 5"/>
+</g>
+</svg>

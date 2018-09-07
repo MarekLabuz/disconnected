@@ -1,18 +1,18 @@
 import Gruu from 'gruujs'
 import cx from 'classnames'
 
-import houseSVG from './svg/house2.svg'
-import oilSVG from './svg/oil.svg'
-import tapeSVG from './svg/tape.svg'
-import gearSVG from './svg/gear.svg'
-import stairsSVG from './svg/stairs.svg'
-import windowSVG from './svg/window.svg'
-import windowSillSVG from './svg/window_sill.svg'
-import doorSVG from './svg/door.svg'
-import drawers1SVG from './svg/drawers1.svg'
-import drawers2SVG from './svg/drawers2.svg'
-import wireSVG from './svg/wire.svg'
-import tableSVG from './svg/table.svg'
+import houseSVG from './minified_svg/house.svg'
+import oilSVG from './minified_svg/oil.svg'
+import tapeSVG from './minified_svg/tape.svg'
+import gearSVG from './minified_svg/gear.svg'
+import stairsSVG from './minified_svg/stairs.svg'
+import windowSVG from './minified_svg/window.svg'
+import windowSillSVG from './minified_svg/window_sill.svg'
+import doorSVG from './minified_svg/door.svg'
+import drawers1SVG from './minified_svg/drawers1.svg'
+import drawers2SVG from './minified_svg/drawers2.svg'
+import wireSVG from './minified_svg/wire.svg'
+import tableSVG from './minified_svg/table.svg'
 
 import style from './sass/index.scss'
 import styleHouse from './sass/house.scss'
@@ -20,13 +20,14 @@ import styleHouse from './sass/house.scss'
 const centerX = window.innerWidth / 2
 const centerY = window.innerHeight / 2
 
+let left = -1460
+let top = -311
+
 const PlayerStore = (
   <$
     state={{
       direction: 'LEFT',
-      isWalking: false,
-      left: -1460,
-      top: -311,
+      isWalking: false
     }}
   />
 )
@@ -81,7 +82,7 @@ const Leg = (customLegPartStyle = {}) => (
   </div>
 )
 
-const Arm = (customArmPartStyle = {}) => (
+const Arm = (
   <div className={style.arm}>
     <div
       $className={() => cx(style.armPart, style.shoulder, (
@@ -89,7 +90,6 @@ const Arm = (customArmPartStyle = {}) => (
           ? style.shoulderMoveAnimation
           : style.shoulderStandAnimation
       ))}
-      style={customArmPartStyle}
     >
       <div
         $className={() => cx(style.armPart, style.forearm, (
@@ -97,13 +97,12 @@ const Arm = (customArmPartStyle = {}) => (
             ? style.forearmMoveAnimation
             : style.forearmStandAnimation
         ))}
-        style={customArmPartStyle}
       />
     </div>
   </div>
 )
 
-const ArmWithLight = () => (
+const ArmWithLight = (
   <div className={style.arm}>
     <div className={cx(style.armPart, style.shoulder, style.shoulderWithLightAnimation)}>
       <div className={cx(style.armPart, style.forearm, style.forearmWithLightAnimation)}>
@@ -136,8 +135,8 @@ const Chest = (
     ))}
   >
     {Head}
-    {Arm({ animationDelay: 0 })}
-    {/* {ArmWithLight()} */}
+    {Arm}
+    {/* {ArmWithLight} */}
   </div>
 )
 
@@ -304,8 +303,8 @@ const DynamicGearInteractionArea = InteractionAreas[8]
 
 const HouseBackground = (
   <div className={styleHouse.house} style={{
-    left: `calc(${PlayerStore.state.left}px + ${window.innerWidth / 2}px)`,
-    top: `calc(${PlayerStore.state.top}px + ${window.innerHeight / 2}px)`,
+    left: `${left + centerX}px`,
+    top: `${top + centerY}px`,
   }}>
     <div innerHTML={houseSVG} />
     {() => Stairs}
@@ -353,7 +352,6 @@ const startGame = () => {
       HouseStore.state.shadowScreenText = 'DISCONNECTED'
       setTimeout(() => {
         HouseStore.state.shadowScreenText = ''
-        // HouseStore.state.inIntroZone = true
       }, 3000)
     }, 3000)
   }, 3000)
@@ -401,10 +399,10 @@ const walkingLoop = () => {
   if (PlayerStore.state.isWalking) {
     switch (PlayerStore.state.direction) {
       case 'LEFT':
-        if (PlayerStore.state.left < -30) PlayerStore.state.left += 3
+        if (left < -30) left += 3
         break
       case 'RIGHT':
-        if (PlayerStore.state.left > -1770) PlayerStore.state.left -= 3
+        if (left > -1770) left -= 3
         break
       default:
         break
@@ -417,8 +415,8 @@ const walkingLoop = () => {
 
 const walkAnim = () => {
   if (HouseBackground._n) {
-    HouseBackground._n.style.left = `calc(${PlayerStore.state.left}px + ${window.innerWidth / 2}px)`
-    HouseBackground._n.style.top = `calc(${PlayerStore.state.top}px + ${window.innerHeight / 2}px)`
+    HouseBackground._n.style.left = `${left + centerX}px`
+    HouseBackground._n.style.top = `${top + centerY}px`
   }
   requestAnimationFrame(walkAnim)
 }
@@ -516,8 +514,11 @@ const gameLoop = () => {
   setTimeout(gameLoop, 250)
 }
 
+let currentKey = null
 document.addEventListener('keydown', (e) => {
-  if (HouseStore.state.wifiFixed || /* HouseStore.state.introStory || */ HouseStore.state.startScreen) return
+  if (currentKey === e.keyCode) return
+  currentKey = e.keyCode
+  if (HouseStore.state.wifiFixed || HouseStore.state.startScreen) return
   switch (e.keyCode) {
     case 39:
       PlayerStore.state.direction = 'RIGHT'
@@ -616,25 +617,25 @@ document.addEventListener('keydown', (e) => {
       break
     case 40:
       if (isInteractiveAreaActive(Stair1FloorInteractionArea)) {
-        PlayerStore.state.left = -970
-        PlayerStore.state.top = -742
+        left = -970
+        top = -742
         PlayerStore.state.direction = 'RIGHT'
       }
       if (isInteractiveAreaActive(Stair0Floor2InteractionArea)) {
-        PlayerStore.state.left = -800
-        PlayerStore.state.top = -1175
+        left = -800
+        top = -1175
         PlayerStore.state.direction = 'RIGHT'
       }
       break
     case 38:
       if (isInteractiveAreaActive(Stair0Floor1InteractionArea)) {
-        PlayerStore.state.left = -500
-        PlayerStore.state.top = -311
+        left = -500
+        top = -311
         PlayerStore.state.direction = 'LEFT'
       }
       if (isInteractiveAreaActive(Stairm1FloorInteractionArea)) {
-        PlayerStore.state.left = -335
-        PlayerStore.state.top = -742
+        left = -335
+        top = -742
         PlayerStore.state.direction = 'LEFT'
       }
       break
@@ -644,6 +645,7 @@ document.addEventListener('keydown', (e) => {
 })
 
 document.addEventListener('keyup', (e) => {
+  currentKey = null
   PlayerStore.state.isWalking = false
 })
 
