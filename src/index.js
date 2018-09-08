@@ -1,5 +1,4 @@
 import Gruu from 'gruujs'
-import cx from 'classnames'
 
 import houseSVG from './minified_svg/house.svg'
 import oilSVG from './minified_svg/oil.svg'
@@ -18,8 +17,6 @@ import tableSVG from './minified_svg/table.svg'
 import style from './sass/index.scss'
 import styleHouse from './sass/house.scss'
 
-console.log({ stairsPropSVG })
-
 const centerX = window.innerWidth / 2
 const centerY = window.innerHeight / 2
 
@@ -30,7 +27,8 @@ const PlayerStore = (
   <$
     state={{
       direction: 'LEFT',
-      isWalking: false
+      isWalking: false,
+      floor: 1
     }}
   />
 )
@@ -74,11 +72,11 @@ const Leg = (customLegPartStyle = {}) => (
       style={customLegPartStyle}
     >
       <div
-        $className={() => cx(style.legPart, style.calf, (
+        $className={() => `${style.legPart} ${style.calf} ${(
           PlayerStore.state.isWalking
             ? style.calfMoveAnimation
             : style.calfStandAnimation
-        ))}
+        )}`}
         style={customLegPartStyle}
       />
     </div>
@@ -131,15 +129,15 @@ const Head = (
 
 const Chest = (
   <div
-    $className={() => cx(style.chest, (
+    $className={() => `${style.chest} ${(
       PlayerStore.state.isWalking
         ? style.chestMoveAnimation
         : style.chestStandAnimation
-    ))}
+    )}`}
   >
     {Head}
     {Arm}
-    {ArmWithLight}
+    {/* {ArmWithLight} */}
   </div>
 )
 
@@ -162,7 +160,7 @@ const Tips = (
   <div
     state={{ text: '', temporaryText: '', visible: false }}
     $className={function () {
-      return cx(styleHouse.tips, this.state.visible && styleHouse.tipsVisible)
+      return `${styleHouse.tips} ${this.state.visible && styleHouse.tipsVisible}`
     }}
     $innerText={function () {
       return this.state.temporaryText || this.state.text
@@ -182,13 +180,13 @@ const setTemporaryText = (temporaryText, time = 5000) => {
 const IntoZone = (
   <div
     state={{ active: false }}
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 1450, top: 120, width: 30, height: 300 }}
+    className={styleHouse.interactionArea}
+    style={{ left: 1450, top: 120, width: 30 }}
   />
 )
 
 const Lever = (
-  <div $className={() => cx(styleHouse.lever, HouseAnimations.state.lever)}>
+  <div $className={() => `${styleHouse.lever} ${HouseAnimations.state.lever}`}>
     <div />
   </div>
 )
@@ -196,98 +194,160 @@ const Lever = (
 const LeverInteractionArea = (
   <div
     state={{ active: false }}
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 50, top: 120, width: 320, height: 300 }}
+    className={styleHouse.interactionArea}
+    style={{ left: 50, top: 120, width: 320 }}
   />
 )
 
 const Computer = (
-  <div $className={() => cx(styleHouse.wifiContainer, HouseAnimations.state.wifi)}>
-    {() => HouseStore.state.wifiCrossVisible && <div className={styleHouse.wifiCross} />}
-    <div className={styleHouse.wifi} />
-  </div>
+  <$>
+    {
+      () => PlayerStore.state.floor === 1 && (
+        <div $className={() => `${styleHouse.wifiContainer} ${HouseAnimations.state.wifi}`}>
+          {() => HouseStore.state.wifiCrossVisible && <div className={styleHouse.wifiCross} />}
+          <div className={styleHouse.wifi} />
+        </div>
+      )
+    }
+  </$>
 )
 
 const ComputerInteractionArea = (
   <div
     state={{ active: false }}
-    className={cx(styleHouse.interactionArea)}
-    style={{ left: 1120, top: 120, width: 300, height: 300 }}
+    className={styleHouse.interactionArea}
+    style={{ left: 1120, top: 120, width: 300 }}
   />
 )
 
 const InteractionAreas = [
-  { left: 470, top: 120, width: 80, height: 300 }, // Stair1FloorInteractionArea
-  { left: 940, top: 555, width: 80, height: 300 }, // Stair0Floor1InteractionArea
-  { left: 300, top: 555, width: 80, height: 300 }, // Stair0Floor2InteractionArea
-  { left: 765, top: 1000, width: 80, height: 300 }, // Stairm1FloorInteractionArea
-  { left: 1570, top: 555, width: 200, height: 300 }, // OilInteractionArea
-  { left: 620, top: 555, width: 270, height: 300 }, // WireInteractionArea
-  { left: 1170, top: 1000, width: 170, height: 300 }, // TapeInteractionArea
-  { left: 50, top: 1000, width: 350, height: 300 }, // StaticGearInteractionArea
-  { left: 1650, top: 120, width: 150, height: 300 } // DynamicGearInteractionArea
-].map(style => <div className={cx(styleHouse.interactionArea)} style={style}/>)
+  { left: 470, top: 120, width: 80 }, // Stair1FloorInteractionArea
+  { left: 940, top: 555, width: 80 }, // Stair0Floor1InteractionArea
+  { left: 300, top: 555, width: 80 }, // Stair0Floor2InteractionArea
+  { left: 765, top: 1000, width: 80 }, // Stairm1FloorInteractionArea
+  { left: 1570, top: 555, width: 200 }, // OilInteractionArea
+  { left: 620, top: 555, width: 270 }, // WireInteractionArea
+  { left: 1170, top: 1000, width: 170 }, // TapeInteractionArea
+  { left: 50, top: 1000, width: 350 }, // StaticGearInteractionArea
+  { left: 1650, top: 120, width: 150 } // DynamicGearInteractionArea
+].map(style => <div className={styleHouse.interactionArea} style={style}/>)
 
 const Oil = <div className={styleHouse.oil} innerHTML={oilSVG} />
 
 const Wire = (
   <div>
     {
-      () => !HouseStore.state.wireFixed
-        ? <div className={styleHouse.static} innerHTML={wireSVG} style={{ left: 728, top: 762 }} />
-        : <div className={styleHouse.fixingWire} />
+      () => PlayerStore.state.floor === 0 && (
+        <$>
+          {
+            () => !HouseStore.state.wireFixed
+              ? <div className={styleHouse.static} innerHTML={wireSVG} style={{ left: 728, top: 762 }} />
+              : <div className={styleHouse.fixingWire} />
+          }
+        </$>
+      )
     }
   </div>
 )
 
 const Stairs = [
-  { left: 484, top: 279 },
-  { left: 311, top: 712 }
-].map(style => <div className={styleHouse.static} innerHTML={stairsSVG} style={style} />)
+  { style: { left: 484, top: 279 }, show: () => PlayerStore.state.floor >= 0 },
+  { style: { left: 311, top: 712 }, show: () => PlayerStore.state.floor <= 0  }
+].map(({ style, show }) => (
+  <$>
+    {
+      () => show() && (
+        <div className={styleHouse.static} innerHTML={stairsSVG} style={style} />
+      )
+    }
+  </$>
+))
+
+const StairsProps = [
+  { style: { left: 540, top: 289 }, show: () => PlayerStore.state.floor >= 0 },
+  { style: { left: 588, top: 338 }, show: () => PlayerStore.state.floor >= 0 },
+  { style: { left: 636, top: 386 }, show: () => PlayerStore.state.floor >= 0 },
+  { style: { left: 684, top: 434 }, show: () => PlayerStore.state.floor >= 0 },
+  { style: { left: 732, top: 482 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 780, top: 530 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 828, top: 578 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 876, top: 626 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 924, top: 674 }, show: () => PlayerStore.state.floor === 0 },
+
+  { style: { left: 367, top: 723 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 415, top: 771 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 463, top: 819 }, show: () => PlayerStore.state.floor === 0 },
+].map(({ style, show }) => (
+  <$>
+    {
+      () => show() && (
+        <div className={styleHouse.static} innerHTML={stairsPropSVG} style={style} />
+      )
+    }
+  </$>
+))
 
 const Windows = [
-  { style: { left: 857, top: 95 }, windowSill: true },
-  { style: { left: 426, top: 95 }, windowSill: true },
-  { style: { left: 112, top: 542 }, windowSill: true },
-  { style: { left: 1484, top: 542 } }
-].map(({ style, windowSill }) => (
-  <div>
-    <div className={styleHouse.static} innerHTML={windowSVG} style={style}></div>
-    {windowSill && <div className={styleHouse.static} innerHTML={windowSillSVG} style={{ left: style.left - 20, top: style.top + 132 }}></div>}
-  </div>
+  { style: { left: 857, top: 95 }, windowSill: true, show: () => PlayerStore.state.floor === 1 },
+  { style: { left: 426, top: 95 }, windowSill: true, show: () => PlayerStore.state.floor === 1 },
+  { style: { left: 112, top: 542 }, windowSill: true, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 1484, top: 542 }, show: () => PlayerStore.state.floor === 0 }
+].map(({ style, windowSill, show }) => (
+  <$>
+    {
+      () => show() && (
+        <div>
+          <div className={styleHouse.static} innerHTML={windowSVG} style={style}></div>
+          {windowSill && <div className={styleHouse.static} innerHTML={windowSillSVG} style={{ left: style.left - 20, top: style.top + 132 }}></div>}
+        </div>
+      )
+    }
+  </$>
 ))
 
 const Doors = [
-  { left: 421, top: 570 },
-  { left: 1606, top: 1002 }
-].map(style => (
-  <div className={styleHouse.static} innerHTML={doorSVG} style={style}></div>
+  { style: { left: 421, top: 570 }, show: () => PlayerStore.state.floor === 0 },
+  { style: { left: 1606, top: 1002 }, show: () => PlayerStore.state.floor === -1 }
+].map(({ style, show }) => (
+  <$>
+    {() => show() && (
+      <div className={styleHouse.static} innerHTML={doorSVG} style={style}></div>
+    )}
+  </$>
 ))
 
 const Drawers = [
-  { style: { left: 879, top: 268 }, type: drawers1SVG },
-  { style: { left: 1313, top: 1133 }, type: drawers1SVG },
-  { style: { left: 735, top: 268 }, type: drawers2SVG },
-  { style: { left: 1486, top: 702 }, type: drawers2SVG },
-].map(({ style, type }) => (
-  <div className={styleHouse.static} innerHTML={type} style={style}></div>
+  { style: { left: 879, top: 268 }, type: drawers1SVG, show: () => PlayerStore.state.floor === 1 },
+  { style: { left: 1313, top: 1133 }, type: drawers1SVG, show: () => PlayerStore.state.floor === -1 },
+  { style: { left: 735, top: 268 }, type: drawers2SVG, show: () => PlayerStore.state.floor === 1 },
+  { style: { left: 1486, top: 702 }, type: drawers2SVG, show: () => PlayerStore.state.floor === 0 },
+].map(({ style, type, show }) => (
+  <$>
+    {() => show() && (
+      <div className={styleHouse.static} innerHTML={type} style={style}></div>
+    )}
+  </$>
 ))
 
 const Tables = [
-  { left: 1160, top: 257 },
-  { left: 1108, top: 1121 }
-].map(style => (
-  <div className={styleHouse.static} innerHTML={tableSVG} style={style}></div>
+  { style: { left: 1160, top: 257 }, show: () => PlayerStore.state.floor === 1 },
+  { style: { left: 1108, top: 1121 }, show: () => PlayerStore.state.floor === -1 }
+].map(({ style, show }) => (
+  <$>
+    {() => show() && (
+      <div className={styleHouse.static} innerHTML={tableSVG} style={style}></div>
+    )}
+  </$>
 ))
 
 const Tape = <div className={styleHouse.tape} innerHTML={tapeSVG}></div>
 
 const StaticGear = (customStyle = {}) => (
-  <div className={cx(styleHouse.gear, styleHouse.staticGear)} innerHTML={gearSVG} style={customStyle}></div>
+  <div className={`${styleHouse.gear} ${styleHouse.staticGear}`} innerHTML={gearSVG} style={customStyle}></div>
 )
 
 const DynamicGear = (
-  <div className={cx(styleHouse.gear, styleHouse.dynamicGear)} innerHTML={gearSVG} />
+  <div className={`${styleHouse.gear} ${styleHouse.dynamicGear}`} innerHTML={gearSVG} />
 )
 
 const HouseBackground = (
@@ -297,6 +357,7 @@ const HouseBackground = (
   }}>
     <div innerHTML={houseSVG} />
     {() => Stairs}
+    {() => StairsProps}
     {() => Windows}
     {() => Doors}
     {() => Drawers}
@@ -319,7 +380,7 @@ const HouseBackground = (
 
 const ShadowScreen = (
   <div
-    $className={() => cx(styleHouse.shadowScreen, HouseStore.state.shadowScreenText && styleHouse.shadowScreenOn)}
+    $className={() => `${styleHouse.shadowScreen} ${HouseStore.state.shadowScreenText && styleHouse.shadowScreenOn}`}
     $innerHTML={() => HouseStore.state.shadowScreenText}
   />
 )
@@ -601,11 +662,13 @@ document.addEventListener('keydown', (e) => {
         left = -970
         top = -742
         PlayerStore.state.direction = 'RIGHT'
+        PlayerStore.state.floor = 0
       }
       if (isInteractiveAreaActive(InteractionAreas[2])) {
         left = -800
         top = -1175
         PlayerStore.state.direction = 'RIGHT'
+        PlayerStore.state.floor = -1
       }
       break
     case 38:
@@ -613,11 +676,13 @@ document.addEventListener('keydown', (e) => {
         left = -500
         top = -311
         PlayerStore.state.direction = 'LEFT'
+        PlayerStore.state.floor = 1
       }
       if (isInteractiveAreaActive(InteractionAreas[3])) {
         left = -335
         top = -742
         PlayerStore.state.direction = 'LEFT'
+        PlayerStore.state.floor = 0
       }
       break
     default:
