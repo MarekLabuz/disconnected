@@ -249,15 +249,6 @@
   opacity: 1;
 }
 
-// @keyframes play-button-animation {
-//   0% {
-//     opacity: 0.8;
-//   }
-//   100% {
-//     opacity: 0.4;
-//   }
-// }
-
 .startScreen {
   button {
     position: absolute;
@@ -272,12 +263,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
     transition: transform 0.2s;
-
-    // animation: play-button-animation;
-    // animation-duration: 0.5s;
-    // animation-iteration-count: infinite;
-    // animation-direction: alternate;
-    // animation-timing-function: linear;
 
     cursor: pointer;
     outline: none;

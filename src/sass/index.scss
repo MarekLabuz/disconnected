@@ -23,14 +23,6 @@ html, body {
   height: 350px;
 }
 
-// .standardAnimation {
-//   transform-origin: 50% 10%;
-//   animation-duration: 1s;
-//   animation-iteration-count: infinite;
-//   animation-direction: normal;
-//   animation-timing-function: ease-in-out;
-// }
-
 @keyframes head-move-animation {
   0% {
     transform: rotateZ(-5deg);
@@ -423,92 +415,3 @@ html, body {
     left: -18px;
   }
 }
-
-// @keyframes forearm1-programming-animation {
-//   0% {
-//     transform: rotateZ(-95deg);
-//   }
-//   100% {
-//     transform: rotateZ(-125deg);
-//   }
-// }
-
-// @keyframes forearm2-programming-animation {
-//   0% {
-//     transform: rotateZ(95deg);
-//   }
-//   100% {
-//     transform: rotateZ(125deg);
-//   }
-// }
-
-// .programming {
-//   .arm:nth-child(2) .shoulder {
-//     transform: rotateZ(45deg);
-//     animation: none;
-//     height: 50px;
-
-//     .forearm {
-//       transform: rotateZ(-95deg);
-//       animation: forearm1-programming-animation;
-//       animation-duration: 0.3s;
-//       animation-iteration-count: infinite;
-//       animation-direction: alternate;
-//       animation-timing-function: linear;
-//       height: 20px;
-//     }
-//   }
-
-//   .arm:nth-child(3) .shoulder {
-//     transform: rotateZ(-45deg);
-//     animation: none;
-//     height: 50px;
-
-//     .forearm {
-//       transform: rotateZ(95deg);
-//       animation: forearm2-programming-animation;
-//       animation-duration: 0.3s;
-//       animation-iteration-count: infinite;
-//       animation-direction: alternate;
-//       animation-timing-function: linear;
-//       animation-delay: -0.3s;
-//       height: 20px;
-
-//       * {
-//         position: fixed;
-//       }
-//     }
-//   }
-
-//   .arm:nth-child(4) .shoulder {
-//     transform: rotate(45deg) translate(20px, -80px);
-//     animation: none;
-//     background-color: transparent;
-//     .forearm {
-//       background-color: transparent;
-//       animation: none;
-//       & > {
-//         div {
-//           background-color: transparent;
-//         }
-//       }
-//     }
-//   }
-
-//   .leg:nth-child(2) .thigh {
-//     transform: rotateZ(35deg);
-//     animation: none;
-
-//     .calf {
-//       transform: rotateZ(-85deg);
-//     }
-//   }
-//   .leg:nth-child(3) .thigh {
-//     transform: rotateZ(-35deg);
-//     animation: none;
-
-//     .calf {
-//       transform: rotateZ(85deg);
-//     }
-//   }
-// }
