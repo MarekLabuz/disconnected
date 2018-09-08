@@ -5,7 +5,7 @@ import houseSVG from './minified_svg/house.svg'
 import oilSVG from './minified_svg/oil.svg'
 import tapeSVG from './minified_svg/tape.svg'
 import gearSVG from './minified_svg/gear.svg'
-import stairsSVG from './minified_svg/stairs2.svg'
+import stairsSVG from './minified_svg/stairs.svg'
 import stairsPropSVG from './minified_svg/stairs_prop.svg'
 import windowSVG from './minified_svg/window.svg'
 import windowSillSVG from './minified_svg/window_sill.svg'
@@ -17,6 +17,8 @@ import tableSVG from './minified_svg/table.svg'
 
 import style from './sass/index.scss'
 import styleHouse from './sass/house.scss'
+
+console.log({ stairsPropSVG })
 
 const centerX = window.innerWidth / 2
 const centerY = window.innerHeight / 2
@@ -64,11 +66,11 @@ const HouseAnimations = (
 const Leg = (customLegPartStyle = {}) => (
   <div className={style.leg}>
     <div
-      $className={() => cx(style.legPart, style.thigh, (
+      $className={() => `${style.legPart} ${style.thigh} ${(
         PlayerStore.state.isWalking
           ? style.thighMoveAnimation
           : style.thighStandAnimation
-      ))}
+      )}`}
       style={customLegPartStyle}
     >
       <div
@@ -86,18 +88,18 @@ const Leg = (customLegPartStyle = {}) => (
 const Arm = (
   <div className={style.arm}>
     <div
-      $className={() => cx(style.armPart, style.shoulder, (
+      $className={() => `${style.armPart} ${style.shoulder} ${(
         PlayerStore.state.isWalking
           ? style.shoulderMoveAnimation
           : style.shoulderStandAnimation
-      ))}
+      )}`}
     >
       <div
-        $className={() => cx(style.armPart, style.forearm, (
+        $className={() => `${style.armPart} ${style.forearm} ${(
           PlayerStore.state.isWalking
             ? style.forearmMoveAnimation
             : style.forearmStandAnimation
-        ))}
+        )}`}
       />
     </div>
   </div>
@@ -105,8 +107,8 @@ const Arm = (
 
 const ArmWithLight = (
   <div className={style.arm}>
-    <div className={cx(style.armPart, style.shoulder, style.shoulderWithLightAnimation)}>
-      <div className={cx(style.armPart, style.forearm, style.forearmWithLightAnimation)}>
+    <div className={`${style.armPart} ${style.shoulder} ${style.shoulderWithLightAnimation}`}>
+      <div className={`${style.armPart} ${style.forearm} ${style.forearmWithLightAnimation}`}>
         <div>
           <div>
             <div />
@@ -449,7 +451,7 @@ const gameLoop = () => {
     tipsText = 'Hmm... I might use it somewhere\n\nPress E to pick oil'
   }
 
-  if (isInteractiveAreaActive(InteractionAreas[4])) {
+  if (isInteractiveAreaActive(InteractionAreas[5])) {
     tipsVisible = true
     if (!HouseStore.state.wireFixed) {
       tipsText = 'Ouch! It looks bad...\n\nPress E to interact'
@@ -540,7 +542,7 @@ document.addEventListener('keydown', (e) => {
           setTimeout(() => {
             HouseStore.state.wifiCrossVisible = false
             setTimeout(() => {
-              HouseStore.state.shadowScreenText = '<span>THE END</span>'
+              HouseStore.state.shadowScreenText = 'THE END'
             }, 1000)
             setTemporaryText('Yey!, it works!', 10000)
           }, 1000)
