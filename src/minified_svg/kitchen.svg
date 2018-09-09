@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg version="1.1" width="875px" height="395px" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(.5 .5)" fill="none" pointer-events="none" stroke="#fff">
+<rect x="2" y="58" width="160" height="334" rx="11.2" ry="11.2" stroke-width="5"/>
+<rect x="16" y="237" width="40" height="10" rx="1.5" ry="1.5" stroke-width="5"/>
+<rect x="177" y="222" width="229" height="169" rx="3.38" ry="3.38" stroke-width="5"/>
+<rect x="187" y="252" width="209" height="30" stroke-width="5"/>
+<rect x="524" y="202" width="13" height="20" stroke-width="5"/>
+<rect x="507" y="190" width="30" height="10" stroke-width="5"/>
+<rect x="549" y="211" width="10" height="10" rx="1.5" ry="1.5" stroke-width="5"/>
+<rect x="501" y="211" width="10" height="10" rx="1.5" ry="1.5" stroke-width="5"/>
+<rect x="768" y="82" width="104" height="310" rx="2.08" ry="2.08" stroke-width="5"/>
+<rect x="777" y="92" width="84" height="290" rx="1.68" ry="1.68" stroke-width="5"/>
+<ellipse cx="797" cy="243" rx="5.5" ry="5.5" stroke-width="5"/>
+<path d="m291.5 85h-107.5q-6 0-3.73-5.56l29.31-71.88q2.26-5.56 8.26-5.56h147.32q6 0 8.26 5.56l29.31 71.88q2.27 5.56-3.73 5.56z" stroke-miterlimit="10" stroke-width="5"/>
+<rect x="219" y="282" width="140" height="99" stroke-width="5"/>
+<rect x="280.5" y="231.5" width="22" height="10" stroke-width="5"/>
+<ellipse cx="264" cy="236" rx="5.5" ry="5.5" stroke-width="5"/>
+<ellipse cx="319" cy="236" rx="5.5" ry="5.5" stroke-width="5"/>
+<path d="m242.45 316.14h97.15" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m241.95 351.14h97.15" stroke-miterlimit="10" stroke-width="5"/>
+<path d="m179.9 215.69h222.07" stroke-miterlimit="10" stroke-width="8"/>
+</g>
+</svg>

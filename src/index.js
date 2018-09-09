@@ -1,11 +1,11 @@
 import Gruu from 'gruujs'
 
-import houseSVG from './minified_svg/house.svg'
+import houseSVG from './minified_svg/house7.svg'
 import oilSVG from './minified_svg/oil.svg'
 import tapeSVG from './minified_svg/tape.svg'
 import gearSVG from './minified_svg/gear.svg'
-import stairsSVG from './minified_svg/stairs.svg'
-import stairsPropSVG from './minified_svg/stairs_prop.svg'
+import stairsSVG from './minified_svg/stairs4.svg'
+import stairsPropSVG from './minified_svg/stairs_prop3.svg'
 import windowSVG from './minified_svg/window.svg'
 import windowSillSVG from './minified_svg/window_sill.svg'
 import doorSVG from './minified_svg/door.svg'
@@ -36,7 +36,7 @@ const PlayerStore = (
 const HouseStore = (
   <$
     state={{
-      startScreen: false,
+      startScreen: true,
       shadowScreenText: '',
       introStory: false,
       inIntroZone: true,
@@ -137,7 +137,7 @@ const Chest = (
   >
     {Head}
     {Arm}
-    {/* {ArmWithLight} */}
+    {ArmWithLight}
   </div>
 )
 
@@ -251,9 +251,9 @@ const Wire = (
 )
 
 const Stairs = [
-  { style: { left: 484, top: 279 }, show: () => PlayerStore.state.floor >= 0 },
-  { style: { left: 311, top: 712 }, show: () => PlayerStore.state.floor <= 0  }
-].map(({ style, show }) => (
+  [{ left: 484, top: 279 }, () => PlayerStore.state.floor >= 0],
+  [{ left: 311, top: 712 }, () => PlayerStore.state.floor <= 0],
+].map(([style, show]) => (
   <$>
     {
       () => show() && (
@@ -264,20 +264,24 @@ const Stairs = [
 ))
 
 const StairsProps = [
-  { style: { left: 540, top: 289 }, show: () => PlayerStore.state.floor >= 0 },
-  { style: { left: 588, top: 338 }, show: () => PlayerStore.state.floor >= 0 },
-  { style: { left: 636, top: 386 }, show: () => PlayerStore.state.floor >= 0 },
-  { style: { left: 684, top: 434 }, show: () => PlayerStore.state.floor >= 0 },
-  { style: { left: 732, top: 482 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 780, top: 530 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 828, top: 578 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 876, top: 626 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 924, top: 674 }, show: () => PlayerStore.state.floor === 0 },
+  [{ left: 531, top: 314 }, () => PlayerStore.state.floor >= 0],
+  [{ left: 579, top: 362 }, () => PlayerStore.state.floor >= 0],
+  [{ left: 627, top: 410 }, () => PlayerStore.state.floor >= 0],
+  [{ left: 675, top: 458 }, () => PlayerStore.state.floor === 0],
+  [{ left: 723, top: 506 }, () => PlayerStore.state.floor === 0],
+  [{ left: 771, top: 554 }, () => PlayerStore.state.floor === 0],
+  [{ left: 819, top: 602 }, () => PlayerStore.state.floor === 0],
+  [{ left: 867, top: 650 }, () => PlayerStore.state.floor === 0],
 
-  { style: { left: 367, top: 723 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 415, top: 771 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 463, top: 819 }, show: () => PlayerStore.state.floor === 0 },
-].map(({ style, show }) => (
+  [{ left: 358, top: 747 }, () => PlayerStore.state.floor <= 0],
+  [{ left: 406, top: 795 }, () => PlayerStore.state.floor <= 0],
+  [{ left: 454, top: 843 }, () => PlayerStore.state.floor <= 0],
+  [{ left: 502, top: 891 }, () => PlayerStore.state.floor === -1],
+  [{ left: 550, top: 939 }, () => PlayerStore.state.floor === -1],
+  [{ left: 598, top: 987 }, () => PlayerStore.state.floor === -1],
+  [{ left: 646, top: 1035 }, () => PlayerStore.state.floor === -1],
+  [{ left: 694, top: 1083 }, () => PlayerStore.state.floor === -1],
+].map(([style, show]) => (
   <$>
     {
       () => show() && (
@@ -288,11 +292,11 @@ const StairsProps = [
 ))
 
 const Windows = [
-  { style: { left: 857, top: 95 }, windowSill: true, show: () => PlayerStore.state.floor === 1 },
-  { style: { left: 426, top: 95 }, windowSill: true, show: () => PlayerStore.state.floor === 1 },
-  { style: { left: 112, top: 542 }, windowSill: true, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 1484, top: 542 }, show: () => PlayerStore.state.floor === 0 }
-].map(({ style, windowSill, show }) => (
+  [{ left: 857, top: 95 }, true, () => PlayerStore.state.floor === 1],
+  [{ left: 426, top: 95 }, true, () => PlayerStore.state.floor === 1],
+  [{ left: 112, top: 542 }, true, () => PlayerStore.state.floor === 0],
+  [{ left: 1484, top: 542 }, false, () => PlayerStore.state.floor === 0],
+].map(([style, windowSill, show]) => (
   <$>
     {
       () => show() && (
@@ -306,9 +310,9 @@ const Windows = [
 ))
 
 const Doors = [
-  { style: { left: 421, top: 570 }, show: () => PlayerStore.state.floor === 0 },
-  { style: { left: 1606, top: 1002 }, show: () => PlayerStore.state.floor === -1 }
-].map(({ style, show }) => (
+  [{ left: 421, top: 570 }, () => PlayerStore.state.floor === 0],
+  [{ left: 1606, top: 1002 }, () => PlayerStore.state.floor === -1],
+].map(([style, show]) => (
   <$>
     {() => show() && (
       <div className={styleHouse.static} innerHTML={doorSVG} style={style}></div>
@@ -317,11 +321,11 @@ const Doors = [
 ))
 
 const Drawers = [
-  { style: { left: 879, top: 268 }, type: drawers1SVG, show: () => PlayerStore.state.floor === 1 },
-  { style: { left: 1313, top: 1133 }, type: drawers1SVG, show: () => PlayerStore.state.floor === -1 },
-  { style: { left: 735, top: 268 }, type: drawers2SVG, show: () => PlayerStore.state.floor === 1 },
-  { style: { left: 1486, top: 702 }, type: drawers2SVG, show: () => PlayerStore.state.floor === 0 },
-].map(({ style, type, show }) => (
+  [{ left: 879, top: 268 }, drawers1SVG, () => PlayerStore.state.floor === 1],
+  [{ left: 1313, top: 1133 }, drawers1SVG, () => PlayerStore.state.floor === -1],
+  [{ left: 735, top: 268 }, drawers2SVG, () => PlayerStore.state.floor === 1],
+  [{ left: 1486, top: 702 }, drawers2SVG, () => PlayerStore.state.floor === 0],
+].map(([style, type, show]) => (
   <$>
     {() => show() && (
       <div className={styleHouse.static} innerHTML={type} style={style}></div>
@@ -330,9 +334,9 @@ const Drawers = [
 ))
 
 const Tables = [
-  { style: { left: 1160, top: 257 }, show: () => PlayerStore.state.floor === 1 },
-  { style: { left: 1108, top: 1121 }, show: () => PlayerStore.state.floor === -1 }
-].map(({ style, show }) => (
+  [{ left: 1160, top: 257 }, () => PlayerStore.state.floor === 1],
+  [{ left: 1108, top: 1121 }, () => PlayerStore.state.floor === -1],
+].map(([style, show]) => (
   <$>
     {() => show() && (
       <div className={styleHouse.static} innerHTML={tableSVG} style={style}></div>
@@ -343,7 +347,13 @@ const Tables = [
 const Tape = <div className={styleHouse.tape} innerHTML={tapeSVG}></div>
 
 const StaticGear = (customStyle = {}) => (
-  <div className={`${styleHouse.gear} ${styleHouse.staticGear}`} innerHTML={gearSVG} style={customStyle}></div>
+  <$>
+    {
+      () => PlayerStore.state.floor === -1 && (
+        <div className={`${styleHouse.gear} ${styleHouse.staticGear}`} innerHTML={gearSVG} style={customStyle}></div>
+      )
+    }
+  </$>
 )
 
 const DynamicGear = (
@@ -425,9 +435,9 @@ const App = (
 Gruu.renderApp(document.querySelector('#root'), App)
 
 const isInteractiveAreaActive = (Area) => {
-  const bbox = Area._n.getBoundingClientRect()
+  const bbox = Area && Area._n && Area._n.getBoundingClientRect()
   return (
-    bbox.left < centerX && bbox.right > centerX && bbox.top < centerY && bbox.bottom > centerY
+    bbox && (bbox.left < centerX && bbox.right > centerX && bbox.top < centerY && bbox.bottom > centerY)
   )
 }
 
@@ -460,14 +470,14 @@ const walkAnim = () => {
     HouseBackground._n.style.left = `${left + centerX}px`
     HouseBackground._n.style.top = `${top + centerY}px`
   }
-  requestAnimationFrame(walkAnim)
+  setTimeout(walkAnim, 50)
 }
 
 walkAnim()
 
 const gameLoop = () => {
   if (HouseStore.state.startScreen) {
-    setTimeout(gameLoop, 250)
+    setTimeout(gameLoop, 500)
     return
   }
 
