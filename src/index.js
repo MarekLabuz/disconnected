@@ -1,11 +1,11 @@
 import Gruu from 'gruujs'
 
-import houseSVG from './minified_svg/house7.svg'
+import houseSVG from './minified_svg/house.svg'
 import oilSVG from './minified_svg/oil.svg'
 import tapeSVG from './minified_svg/tape.svg'
 import gearSVG from './minified_svg/gear.svg'
-import stairsSVG from './minified_svg/stairs4.svg'
-import stairsPropSVG from './minified_svg/stairs_prop3.svg'
+import stairsSVG from './minified_svg/stairs.svg'
+import stairsPropSVG from './minified_svg/stairs_prop.svg'
 import windowSVG from './minified_svg/window.svg'
 import windowSillSVG from './minified_svg/window_sill.svg'
 import doorSVG from './minified_svg/door.svg'
@@ -470,7 +470,7 @@ const walkAnim = () => {
     HouseBackground._n.style.left = `${left + centerX}px`
     HouseBackground._n.style.top = `${top + centerY}px`
   }
-  setTimeout(walkAnim, 50)
+  setTimeout(walkAnim, 30)
 }
 
 walkAnim()
@@ -641,7 +641,7 @@ document.addEventListener('keydown', (e) => {
         if (HouseStore.state.tapeTaken) {
           HouseStore.state.wireFixed = true
         } else {
-          setTemporaryText(`I'd better not touch it\nI have to find something to isolate it`)
+          setTemporaryText(`I'd better not touch it\nI have to find something to fix it`)
         }
       }
       if (
@@ -657,7 +657,7 @@ document.addEventListener('keydown', (e) => {
         if (HouseStore.state.gearTaken) {
           HouseStore.state.gearFixed = true
         } else {
-          setTemporaryText('Without necessary tools I can do nothing...')
+          setTemporaryText(`Without necessary tools I can't do anything...`)
         }
       }
       if (
