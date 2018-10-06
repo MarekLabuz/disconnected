@@ -1,1 +1,1 @@
-Game created for Js13kGames (https://js13kgames.com/)
+Game "You were disconnected" created for Js13kGames 2018 (https://js13kgames.com/)
